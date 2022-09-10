@@ -4,12 +4,15 @@ using namespace std;
 
 int main(){
 	int opc = 0 ;
-	cout << "Hola!" << endl;
 	while(opc != 10){
 		cout << "Lista simple" << endl;
 		cout << "1. Añadir al inicio" << endl;
 		cout << "2. Mostrar" << endl;
+		cout << "3. Añadir al final" << endl;
+		cout << "4. Eliminar" << endl;
+		cout << "5. Añadir en posición" << endl;
 		
+		cout << ": " << endl;
 		cin >> opc;
 
 		switch(opc){

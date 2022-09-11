@@ -17,6 +17,7 @@ class Lista{
         void insertarInicio(int);
         void imprimirTodo(void);
 	void eliminarFinal(void);
+	void eliminarInicio(void);
 	void insertarFinal(int);
 };
 

@@ -74,16 +74,25 @@ void Lista::insertarFinal(int d){
 
 	// No hay ningún nodo
 	if(h == nullptr){
-		cout << "Me asignaron cabecera" << endl;
 		h = auxFinal;
 	}
 	else{
 		// A partir de un nodo
 		Nodo* aux = h;
 		while(aux->sig  != nullptr){
-			cout << "Recorriendo la lista" << endl;
 			aux = aux->sig;
 		}
 		aux->sig = auxFinal;
+	}
+}
+
+void Lista::eliminarInicio(void){
+	if(h == nullptr){
+		cout << "Lista inexistente!" << endl;
+	}
+	else{
+		Nodo* aux = h;
+		h = aux->sig;
+		delete aux;
 	}
 }

@@ -40,11 +40,7 @@ int main(){
 	prueba.insertarFinal(9);
 	prueba.insertarFinal(123);
 	prueba.insertarFinal(999);
-	prueba.insertarFinal(8483);
-	prueba.insertarFinal(827372);
-	prueba.insertarFinal(172);
-	prueba.insertarInicio(1);
-	prueba.eliminarFinal();
+	prueba.eliminarInicio();
 	prueba.imprimirTodo();
 	return 0;
 }

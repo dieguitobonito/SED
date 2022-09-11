@@ -56,15 +56,34 @@ void Lista::eliminarFinal(void){
 		}
 		else{
 			// Como su nombre lo indica, guardará la dirección del nodo anterior
-			Nodo* anterior = aux;
+			Nodo* auxAnt = aux;
 			// Irá guardando la posición previa hasta
 			// que se encuentre el último nodo
 			while(aux->sig != nullptr){
-				anterior = aux;		
+				auxAnt = aux;		
 				aux = aux->sig;
 			}
-			anterior->sig = nullptr;
+			auxAnt->sig = nullptr;
 			delete aux;
 		}
+	}
+}
+
+void Lista::insertarFinal(int d){
+	Nodo* auxFinal = new Nodo(d, nullptr);
+
+	// No hay ningún nodo
+	if(h == nullptr){
+		cout << "Me asignaron cabecera" << endl;
+		h = auxFinal;
+	}
+	else{
+		// A partir de un nodo
+		Nodo* aux = h;
+		while(aux->sig  != nullptr){
+			cout << "Recorriendo la lista" << endl;
+			aux = aux->sig;
+		}
+		aux->sig = auxFinal;
 	}
 }

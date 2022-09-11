@@ -37,10 +37,13 @@ void menu(){
 int main(){
 	Lista prueba;
 	prueba.imprimirTodo();
-	prueba.insertarInicio(9);
-	prueba.insertarInicio(123);
-	prueba.insertarInicio(999);
-	prueba.imprimirTodo();
+	prueba.insertarFinal(9);
+	prueba.insertarFinal(123);
+	prueba.insertarFinal(999);
+	prueba.insertarFinal(8483);
+	prueba.insertarFinal(827372);
+	prueba.insertarFinal(172);
+	prueba.insertarInicio(1);
 	prueba.eliminarFinal();
 	prueba.imprimirTodo();
 	return 0;

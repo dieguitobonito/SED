@@ -16,6 +16,7 @@ class Lista{
         // Métodos
         void insertarInicio(int);
         void imprimirTodo(void);
+	void eliminarFinal(void);
 };
 
 #endif // LISTA_H

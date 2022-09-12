@@ -19,6 +19,8 @@ class Lista{
 	void eliminarFinal(void);
 	void eliminarInicio(void);
 	void insertarFinal(int);
+	void cantidadElementos(void);
+	void eliminarPosicion(int);
 };
 
 #endif // LISTA_H

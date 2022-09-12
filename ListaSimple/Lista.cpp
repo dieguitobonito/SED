@@ -69,6 +69,18 @@ void Lista::eliminarFinal(void){
 	}
 }
 
+
+void Lista::eliminarInicio(void){
+	if(h == nullptr){
+		cout << "Lista inexistente!" << endl;
+	}
+	else{
+		Nodo* aux = h;
+		h = aux->sig;
+		delete aux;
+	}
+}
+
 void Lista::insertarFinal(int d){
 	Nodo* auxFinal = new Nodo(d, nullptr);
 
@@ -86,13 +98,29 @@ void Lista::insertarFinal(int d){
 	}
 }
 
-void Lista::eliminarInicio(void){
+void Lista::cantidadElementos(void){
+	Nodo* aux = h;
+	int cantidad = 1;
 	if(h == nullptr){
-		cout << "Lista inexistente!" << endl;
+		cout << "Lista inexistente" << endl;
 	}
 	else{
-		Nodo* aux = h;
-		h = aux->sig;
-		delete aux;
+		while(aux->sig != nullptr){
+			aux = aux->sig;
+			cantidad++;
+		}
+	}
+	cout << "Hay " << cantidad << " elementos en la lista" << endl;
+}
+
+void Lista::eliminarPosicion(int pos){
+	Nodo* aux = h;
+
+	if(h == nullptr){
+		cout << "Lista inexistente" << endl;
+	}
+	else{
+		int cant;
+		cout << cant << endl;	
 	}
 }

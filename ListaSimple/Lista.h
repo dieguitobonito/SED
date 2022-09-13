@@ -16,11 +16,11 @@ class Lista{
         // Métodos
         void insertarInicio(int);
         void imprimirTodo(void);
-	void eliminarFinal(void);
-	void eliminarInicio(void);
+//	void eliminarFinal(void);
+//	void eliminarInicio(void);
 	void insertarFinal(int);
 	void cantidadElementos(void);
-	void eliminarPosicion(int);
+	void eliminar(int);
 };
 
 #endif // LISTA_H

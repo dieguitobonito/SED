@@ -6,10 +6,11 @@ Lista::Lista(){
 }
 
 // Constructor por parámetros
-Lista::Lista(Nodo* sigPos){
+Lista::Lista(Alumno* sigPos){
 	this->h = sigPos;
 }
 
+// 1
 void Lista::insertarInicio(string n, int e){
 	Alumno* aux = new Alumno(n, e, nullptr);
 	
@@ -22,68 +23,9 @@ void Lista::insertarInicio(string n, int e){
 	}
 }
 
-void Lista::imprimirTodo(void){
-	Nodo* aux = h;
-
-	// Puede representarse como 'aux == nullptr'
-	if(!aux){
-		cout<< "¡No hay lista!" << endl;
-	}
-	else{
-		// Mientras aux tenga un valor
-		while(aux){
-			cout << aux->dato << endl;
-			aux = aux->sig;
-
-		}
-	}
-}
-
-// void Lista::eliminarFinal(void){	
-// 	Nodo* aux = h;	
-// 	
-// 	// No hay lista
-// 	// Si se eliminan todos los nodos no aparecerá el mensaje hasta una segunda vez
-// 	if(h == nullptr){
-// 		cout << "Lista inexistente" << endl;
-// 	}
-// 	else{
-// 		// Que solo exista un nodo en la lista
-// 		// (Da segfault si solo se crea un nodo y se imprime todo)
-// 		if(aux->sig == nullptr){
-// 			aux = h;
-// 			h = nullptr;
-// 			delete aux;
-// 		}
-// 		else{
-// 			// Como su nombre lo indica, guardará la dirección del nodo anterior
-// 			Nodo* auxAnt = aux;
-// 			// Irá guardando la posición previa hasta
-// 			// que se encuentre el último nodo
-// 			while(aux->sig != nullptr){
-// 				auxAnt = aux;		
-// 				aux = aux->sig;
-// 			}
-// 			auxAnt->sig = nullptr;
-// 			delete aux;
-// 		}
-// 	}
-// }
-
-
-// void Lista::eliminarInicio(void){
-// 	if(h == nullptr){
-// 		cout << "Lista inexistente!" << endl;
-// 	}
-// 	else{
-// 		Nodo* aux = h;
-// 		h = aux->sig;
-// 		delete aux;
-// 	}
-// }
-
-void Lista::insertarFinal(int d){
-	Nodo* auxFinal = new Nodo(d, nullptr);
+// 2
+void Lista::insertarFinal(string n, int e){
+	Alumno* auxFinal = new Nodo(n, e, nullptr);
 
 	// No hay ningún nodo
 	if(h == nullptr){
@@ -91,37 +33,27 @@ void Lista::insertarFinal(int d){
 	}
 	else{
 		// A partir de un nodo
-		Nodo* aux = h;
-		while(aux->sig  != nullptr){
+		Alumno* aux = h;
+		while(aux->sig != nullptr){
 			aux = aux->sig;
 		}
 		aux->sig = auxFinal;
 	}
 }
 
-void Lista::cantidadElementos(void){
-	Nodo* aux = h;
-	int cantidad = 0;
-	if(h == nullptr){
-		cout << "Lista inexistente" << endl;
-	}
-	else{
-		while(aux != nullptr){
-			aux = aux->sig;
-			cantidad++;
-		}
-		cout << "Hay " << cantidad << " elemento(s) en la lista" << endl;
-	}
-}
+// 3
+void Lista::insertarPos(string n, int e){
 
+}
+// 4
 void Lista::eliminar(int d){
 
 	if(h == nullptr){
 		cout << "Lista inexistente" << endl;
 	}
 	else{
-		Nodo* aux = h;
-		Nodo* auxAnt = nullptr;
+		Alumno* aux = h;
+		Alumno* auxAnt = nullptr;
 		bool band = true;
 		while(aux && band){
 			if(aux->dato == d){
@@ -150,6 +82,77 @@ void Lista::eliminar(int d){
 		else{
 			auxAnt->sig = aux->sig;
 			delete aux;
+		}
+	}
+}
+
+// 5
+void Lista::eliminarTodo(void){
+
+}
+
+// 6
+void Lista::buscar(string n, int e){
+
+}
+
+// 7
+void Lista::inicializa(void){
+
+}
+
+// 8
+bool Lista::vacía(void){
+
+}
+
+// 9
+void Lista::primero(void){
+
+}
+
+// 10
+void Lista::ultimo(void){
+
+}
+
+// 11
+int Lista::tamaño(void){
+	Alumno* aux = h;
+	int cantidad = 0;
+	if(h == nullptr){
+		cout << "Lista inexistente" << endl;
+	}
+	else{
+		while(aux != nullptr){
+			aux = aux->sig;
+			cantidad++;
+		}
+		return cantidad;
+	}
+}
+
+// 12
+void Lista::siguiente(string n, int e){
+}
+
+// 13
+void Lista::anterior(string n, int e){
+}
+
+// 14
+void Lista::mostrarTodo(void){
+	Alumno* aux = h;
+
+	// Puede representarse como 'aux == nullptr'
+	if(!aux){
+		cout<< "¡No hay lista!" << endl;
+	}
+	else{
+		// Mientras aux tenga un valor
+		while(aux){
+			cout << aux->dato << endl;
+			aux = aux->sig;
 		}
 	}
 }

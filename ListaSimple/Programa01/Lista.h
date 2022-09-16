@@ -16,20 +16,21 @@ class Lista{
         Lista(Nodo*);
 
         // Métodos	
-        void insertarInicio(string, int);
-	void insertarFinal(string, int);
-	void insertarPos(int, string, int);
-	void eliminar(string, int);
-	void eliminarTodo(void);
-	void buscar(string, int);
-	void inicializa(void);
-	bool vacía(void);
-	void primero(void);
-	void ultimo(void);
-	int tamaño(void);
-	void siguiente(string, int);
-	void anterior(string, int);
-	void mostrarTodo(void);
+	
+        void insertarInicio(string, int); // 1 yes
+	void insertarFinal(string, int); // 2 
+	void insertarPos(int, string, int); // 3
+	void eliminar(string, int); // 4
+	void eliminarTodo(void); // 5
+	void buscar(string, int); // 6
+	void inicializa(void); // 7
+	bool vacía(void); // 8
+	void primero(void); // 9
+	void ultimo(void); // 10
+	int tamaño(void); // 11
+	void siguiente(string, int); // 12
+	void anterior(string, int); // 13
+	void mostrarTodo(void); // 14
 };
 
 #endif // LISTA_H

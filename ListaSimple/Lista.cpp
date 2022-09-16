@@ -38,49 +38,6 @@ void Lista::imprimirTodo(void){
 	}
 }
 
-// void Lista::eliminarFinal(void){	
-// 	Nodo* aux = h;	
-// 	
-// 	// No hay lista
-// 	// Si se eliminan todos los nodos no aparecerá el mensaje hasta una segunda vez
-// 	if(h == nullptr){
-// 		cout << "Lista inexistente" << endl;
-// 	}
-// 	else{
-// 		// Que solo exista un nodo en la lista
-// 		// (Da segfault si solo se crea un nodo y se imprime todo)
-// 		if(aux->sig == nullptr){
-// 			aux = h;
-// 			h = nullptr;
-// 			delete aux;
-// 		}
-// 		else{
-// 			// Como su nombre lo indica, guardará la dirección del nodo anterior
-// 			Nodo* auxAnt = aux;
-// 			// Irá guardando la posición previa hasta
-// 			// que se encuentre el último nodo
-// 			while(aux->sig != nullptr){
-// 				auxAnt = aux;		
-// 				aux = aux->sig;
-// 			}
-// 			auxAnt->sig = nullptr;
-// 			delete aux;
-// 		}
-// 	}
-// }
-
-
-// void Lista::eliminarInicio(void){
-// 	if(h == nullptr){
-// 		cout << "Lista inexistente!" << endl;
-// 	}
-// 	else{
-// 		Nodo* aux = h;
-// 		h = aux->sig;
-// 		delete aux;
-// 	}
-// }
-
 void Lista::insertarFinal(int d){
 	Nodo* auxFinal = new Nodo(d, nullptr);
 
@@ -113,6 +70,22 @@ void Lista::cantidadElementos(void){
 	}
 }
 
+// Cantidad de elementos que retorna
+int Lista::cantidadElementosR(void){
+	Nodo* aux = h;
+	int cantidad = 0;
+	if(h == nullptr){
+		return cantidad;
+	}
+	else{
+		while(aux != nullptr){
+			aux = aux->sig;
+			cantidad++;
+		}
+		return cantidad;
+	}
+}
+
 void Lista::eliminar(int d){
 
 	if(h == nullptr){
@@ -121,6 +94,45 @@ void Lista::eliminar(int d){
 	else{
 		Nodo* aux = h;
 		Nodo* auxAnt = nullptr;
+		bool band = true;
+		while(aux && band){
+			if(aux->dato == d){
+				band = false;
+			}
+			else{
+				auxAnt = aux;
+				aux = aux->sig;
+			}
+		}
+		if(aux == nullptr){
+			cout << "Dato no encontrado" << endl;
+		}
+		// El nodo a buscar está en el principio
+		else if(aux == h){
+			h = h->sig;
+			delete aux;
+		}
+		// El nodo está al final (se puede combinar
+		// con el de eliminar a la mitad)
+		else if(aux->sig == nullptr){
+			auxAnt->sig == nullptr;
+			delete aux;
+		}
+		// Si el nodo está a la mitad
+		else{
+			auxAnt->sig = aux->sig;
+			delete aux;
+		}
+	}
+}
+
+void Lista::insertarPosicion(int d){
+	Nodo* aux = new Nodo(d, nullptr);	 
+
+	if(h == nullptr){
+		h = aux;
+	}
+	else{
 		bool band = true;
 		while(aux && band){
 			if(aux->dato == d){

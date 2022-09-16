@@ -2,15 +2,18 @@
 #define ALUMNO_H
 #include <string>
 
+// Para que se puedan utilizar std::string
+using namespace std;
+
 class Alumno{
 	public:
 		string nombre;
 		int edad;
-		Nodo* sig;
+		Alumno* sig;
 
 		// Constructores
-		Nodo();
-		Nodo(string, int, Nodo*);
+		Alumno();
+		Alumno(string, int, Alumno*);
 };
 
 #endif // ALUMNO_H

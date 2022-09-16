@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Lista.h"
-#include "Nodo.h"
+#include "Alumno.h"
 
 #include <string>
 
@@ -11,6 +11,10 @@ void menu(){
 	int opc = 0;
 	int valor;
 	Lista salonA;
+	// Lo necesario para poder operar con la lista
+	string nombre;
+	int edad;
+	int pos;
 	while(opc != 15){
 		cout << "\n1. Añadir alumno al inicio" << endl;
 		cout << "2. Añadir alumno al final" << endl;
@@ -32,10 +36,6 @@ void menu(){
 		cout << endl;
 	
 		switch(opc){
-			// Lo necesario para poder operar con la lista
-			string nombre;
-			int edad;
-			int pos;
 
 			// Añadir al inicio
 			case 1:
@@ -94,7 +94,7 @@ void menu(){
 					cout << "Operación cancelada por usuario" << endl;
 				}
 				else if(confirmacion == 1){
-					salonA.eliminartodo();
+					salonA.eliminarTodo();
 				}
 				else{
 					cout << "Valor incorrecto, operación cancelada" << endl;
@@ -119,7 +119,7 @@ void menu(){
 
 			// Vacía
 			case 8:
-				if (salonA.vacia == 1)
+				if (salonA.vacía() == 1)
 					cout << "La lista no está vacia" << endl;
 				else
 					cout << "La lista está vacía" << endl;
@@ -137,7 +137,7 @@ void menu(){
 
 			// Cantidad de alumnos
 			case 11:
-				cout << "El salón contiene " << salonA.tamaño() << " alumnos" endl;
+				cout << "El salón contiene " << salonA.tamaño() << " alumnos" << endl;
 				break;
 
 			// Siguiente alumno

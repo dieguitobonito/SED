@@ -9,7 +9,7 @@ Alumno::Alumno(){
 }
 
 // Constructor con parámetros dados
-Nodo::Nodo(string nombre, int edad, Nodo* sig){
+Alumno::Alumno(string nombre, int edad, Alumno* sig){
 	this-> nombre = nombre;
 	this->edad = edad;
 	this->sig = sig;

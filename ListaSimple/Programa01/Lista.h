@@ -9,11 +9,11 @@ using namespace std;
 
 class Lista{
     public:
-        Nodo* h;
+        Alumno* h;
 
 	// Constructores
 	Lista();
-        Lista(Nodo*);
+        Lista(Alumno*);
 
         // Métodos	
 	

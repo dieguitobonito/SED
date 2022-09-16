@@ -25,7 +25,7 @@ void Lista::insertarInicio(string n, int e){
 
 // 2
 void Lista::insertarFinal(string n, int e){
-	Alumno* auxFinal = new Nodo(n, e, nullptr);
+	Alumno* auxFinal = new Alumno(n, e, nullptr);
 
 	// No hay ningún nodo
 	if(h == nullptr){
@@ -42,11 +42,12 @@ void Lista::insertarFinal(string n, int e){
 }
 
 // 3
-void Lista::insertarPos(string n, int e){
+void Lista::insertarPos(int p, string n, int e){
+	cout << "Impleméntame" << endl;
 
 }
 // 4
-void Lista::eliminar(int d){
+void Lista::eliminar(string n, int e){
 
 	if(h == nullptr){
 		cout << "Lista inexistente" << endl;
@@ -56,7 +57,7 @@ void Lista::eliminar(int d){
 		Alumno* auxAnt = nullptr;
 		bool band = true;
 		while(aux && band){
-			if(aux->dato == d){
+			if(aux->edad == e){
 				band = false;
 			}
 			else{
@@ -104,6 +105,8 @@ void Lista::inicializa(void){
 // 8
 bool Lista::vacía(void){
 
+	cout << "Impleméntame" << endl;
+	return true;
 }
 
 // 9
@@ -130,6 +133,7 @@ int Lista::tamaño(void){
 		}
 		return cantidad;
 	}
+	return cantidad;
 }
 
 // 12
@@ -151,7 +155,8 @@ void Lista::mostrarTodo(void){
 	else{
 		// Mientras aux tenga un valor
 		while(aux){
-			cout << aux->dato << endl;
+			cout << "Nombre y edad" << endl;
+			cout << aux->nombre << ", " << aux->edad << endl;
 			aux = aux->sig;
 		}
 	}

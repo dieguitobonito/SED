@@ -1,8 +1,10 @@
 #ifndef LISTA_H
 #define LISTA_H
 
-#include "Nodo.h"
+#include "Alumno.h"
 #include <iostream>
+#include "string.h"
+
 using namespace std;
 
 class Lista{
@@ -13,14 +15,21 @@ class Lista{
 	Lista();
         Lista(Nodo*);
 
-        // Métodos
-        void insertarInicio(int);
-        void imprimirTodo(void);
-//	void eliminarFinal(void);
-//	void eliminarInicio(void);
-	void insertarFinal(int);
-	void cantidadElementos(void);
-	void eliminar(int);
+        // Métodos	
+        void insertarInicio(string, int);
+	void insertarFinal(string, int);
+	void insertarPos(int, string, int);
+	void eliminar(string, int);
+	void eliminarTodo(void);
+	void buscar(string, int);
+	void inicializa(void);
+	bool vacía(void);
+	void primero(void);
+	void ultimo(void);
+	int tamaño(void);
+	void siguiente(string, int);
+	void anterior(string, int);
+	void mostrarTodo(void);
 };
 
 #endif // LISTA_H

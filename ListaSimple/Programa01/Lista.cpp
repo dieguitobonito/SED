@@ -5,12 +5,13 @@ Lista::Lista(){
 	h = nullptr;
 }
 
+// Constructor por parámetros
 Lista::Lista(Nodo* sigPos){
 	this->h = sigPos;
 }
 
-void Lista::insertarInicio(int d){
-	Nodo* aux = new Nodo(d, nullptr);
+void Lista::insertarInicio(string n, int e){
+	Alumno* aux = new Alumno(n, e, nullptr);
 	
 	if(h == nullptr){
 		h = aux;

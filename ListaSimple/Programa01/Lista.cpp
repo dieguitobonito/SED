@@ -6,11 +6,10 @@ Lista::Lista(){
 }
 
 // Constructor por parámetros
-Lista::Lista(Alumno* sigPos){
+Lista::Lista(Nodo* sigPos){
 	this->h = sigPos;
 }
 
-// 1
 void Lista::insertarInicio(string n, int e){
 	Alumno* aux = new Alumno(n, e, nullptr);
 	
@@ -21,9 +20,9 @@ void Lista::insertarInicio(string n, int e){
 		aux->sig = h;
 		h = aux;
 	}
+	cout << "Alumno añadido" << endl;
 }
 
-// 2
 void Lista::insertarFinal(string n, int e){
 	Alumno* auxFinal = new Alumno(n, e, nullptr);
 
@@ -41,12 +40,20 @@ void Lista::insertarFinal(string n, int e){
 	}
 }
 
-// 3
 void Lista::insertarPos(int p, string n, int e){
-	cout << "Impleméntame" << endl;
+	Alumno* aux = new Alumno(n, e, nullptr);
+	int posicion = p;
+	aux = h;
 
+	while(p != posicion){
+		previo = aux;
+		aux = aux->sig;		
+		posicion++;
+	}
+	aux->sig = previo->sig;	
+	previo->sig = aux;
 }
-// 4
+
 void Lista::eliminar(string n, int e){
 
 	if(h == nullptr){
@@ -87,39 +94,32 @@ void Lista::eliminar(string n, int e){
 	}
 }
 
-// 5
 void Lista::eliminarTodo(void){
 
 }
 
-// 6
 void Lista::buscar(string n, int e){
 
 }
 
-// 7
 void Lista::inicializa(void){
 
 }
 
-// 8
 bool Lista::vacía(void){
 
 	cout << "Impleméntame" << endl;
 	return true;
 }
 
-// 9
 void Lista::primero(void){
 
 }
 
-// 10
 void Lista::ultimo(void){
 
 }
 
-// 11
 int Lista::tamaño(void){
 	Alumno* aux = h;
 	int cantidad = 0;
@@ -136,15 +136,12 @@ int Lista::tamaño(void){
 	return cantidad;
 }
 
-// 12
 void Lista::siguiente(string n, int e){
 }
 
-// 13
 void Lista::anterior(string n, int e){
 }
 
-// 14
 void Lista::mostrarTodo(void){
 	Alumno* aux = h;
 
@@ -152,12 +149,16 @@ void Lista::mostrarTodo(void){
 	if(!aux){
 		cout<< "¡No hay lista!" << endl;
 	}
-	else{
+	else{	
+		cout << "Número de lista, nombre, edad" << endl;
+		int numl = 1;
 		// Mientras aux tenga un valor
 		while(aux){
-			cout << "Nombre y edad" << endl;
-			cout << aux->nombre << ", " << aux->edad << endl;
+				
+			cout << numl << ".- " << aux->nombre << ", " << aux->edad << endl;
 			aux = aux->sig;
+			numl++;
 		}
 	}
 }
+

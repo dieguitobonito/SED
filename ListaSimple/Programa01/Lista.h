@@ -1,7 +1,7 @@
 #ifndef LISTA_H
 #define LISTA_H
 
-#include "Alumno.h"
+#include "Nodo.h"
 #include <iostream>
 #include "string.h"
 
@@ -9,7 +9,7 @@ using namespace std;
 
 class Lista{
     public:
-        Alumno* h;
+        Nodo* h;
 
 	// Constructores
 	Lista();

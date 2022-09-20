@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Lista.h"
-#include "Alumno.h"
+#include "Nodo.h"
 
 #include <string>
 
@@ -10,7 +10,9 @@ void menu(){
 	cout << "--- Clase de alumnos ---" << endl;
 	int opc = 0;
 	int valor;
+
 	Lista salonA;
+
 	// Lo necesario para poder operar con la lista
 	string nombre;
 	int edad;
@@ -63,14 +65,18 @@ void menu(){
 			case 3:
 				cout << "¿En qué posición quieres colocar al alumno?\n: ";
 				cin >> pos;
+				if(pos <= salonA.tamaño() && pos >= salonA.tamño()){
+					cout << "¿Cómo se llama el alumno?\n: ";
+					cin >> nombre;
 
-				cout << "¿Cómo se llama el alumno?\n: ";
-				cin >> nombre;
+					cout << "¿Cuántos años tiene?\n: ";
+					cin >> edad;
 
-				cout << "¿Cuántos años tiene?\n: ";
-				cin >> edad;
-
-				salonA.insertarPos(pos, nombre, edad);
+					salonA.insertarPos(pos, nombre, edad);
+				}
+				else{
+					cout << "Posición no existente en la lista, saliendo" << endl;
+				}
 				break;
 
 			// Dar de baja alumno

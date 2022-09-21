@@ -3,12 +3,12 @@
 
 // Constructor predeterminado
 Nodo::Nodo(){
-    sig = nullptr;
+    m_sig = nullptr;
 
 }
 
 // Constructor con parámetros dados
 Nodo::Nodo(Alumno al, Nodo* sig){
-	this->persona = al;
-	this->sig = sig;
+	m_niño = al;
+	m_sig = sig;
 }

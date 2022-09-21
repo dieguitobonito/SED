@@ -8,8 +8,8 @@ using namespace std;
 
 class Nodo{
 	public:
-		Alumno persona;
-		Nodo* sig;
+		Alumno m_niño;
+		Nodo* m_sig;
 
 		// Constructores
 		Nodo();

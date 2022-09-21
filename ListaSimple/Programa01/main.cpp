@@ -12,10 +12,11 @@ void menu(){
 	int valor;
 
 	Lista salonA;
+	Nodo juanito;
 
 	// Lo necesario para poder operar con la lista
-	string nombre;
-	int edad;
+	string name;
+	int age;
 	int pos;
 	while(opc != 15){
 		cout << "\n1. Añadir alumno al inicio" << endl;
@@ -42,130 +43,132 @@ void menu(){
 			// Añadir al inicio
 			case 1:
 				cout << "¿Cómo se llama el alumno?\n: ";
-				cin >> nombre;
+				cin >> name;
 
 				cout << "¿Cuántos años tiene?\n: ";
-				cin >> edad;
+				cin >> age;
 
-				salonA.insertarInicio(nombre, edad);
+				juanito.persona.nombre = name;	
+				juanito.persona.edad = age;
+				salonA.insertarInicio(juanito);
 				break;
 
-			// Añadir al final 
-			case 2:
-				cout << "¿Cómo se llama el alumno?\n: ";
-				cin >> nombre;
+			// // Añadir al final 
+			// case 2:
+			// 	cout << "¿Cómo se llama el alumno?\n: ";
+			// 	cin >> nombre;
 
-				cout << "¿Cuántos años tiene?\n: ";
-				cin >> edad;
+			// 	cout << "¿Cuántos años tiene?\n: ";
+			// 	cin >> edad;
 
-				salonA.insertarFinal(nombre, edad);
-				break;
+			// 	salonA.insertarFinal(nombre, edad);
+			// 	break;
 
-			// Insertar en posición
-			case 3:
-				cout << "¿En qué posición quieres colocar al alumno?\n: ";
-				cin >> pos;
-				if(pos <= salonA.tamaño() && pos >= salonA.tamño()){
-					cout << "¿Cómo se llama el alumno?\n: ";
-					cin >> nombre;
+			// // Insertar en posición
+			// case 3:
+			// 	cout << "¿En qué posición quieres colocar al alumno?\n: ";
+			// 	cin >> pos;
+			// 	if(pos <= salonA.tamaño() && pos >= salonA.tamño()){
+			// 		cout << "¿Cómo se llama el alumno?\n: ";
+			// 		cin >> nombre;
 
-					cout << "¿Cuántos años tiene?\n: ";
-					cin >> edad;
+			// 		cout << "¿Cuántos años tiene?\n: ";
+			// 		cin >> edad;
 
-					salonA.insertarPos(pos, nombre, edad);
-				}
-				else{
-					cout << "Posición no existente en la lista, saliendo" << endl;
-				}
-				break;
+			// 		salonA.insertarPos(pos, nombre, edad);
+			// 	}
+			// 	else{
+			// 		cout << "Posición no existente en la lista, saliendo" << endl;
+			// 	}
+			// 	break;
 
-			// Dar de baja alumno
-			case 4:
-				cout << "¿Cómo se llama el alumno a dar de baja?\n: ";
-				cin >> nombre;
+			// // Dar de baja alumno
+			// case 4:
+			// 	cout << "¿Cómo se llama el alumno a dar de baja?\n: ";
+			// 	cin >> nombre;
 
-				cout << "¿Cuántos años tiene?\n: ";
-				cin >> edad;
+			// 	cout << "¿Cuántos años tiene?\n: ";
+			// 	cin >> edad;
 
-				salonA.eliminar(nombre, edad);
-				break;
+			// 	salonA.eliminar(nombre, edad);
+			// 	break;
 
-			// Dar de baja toda la clase
-			case 5:
-				bool confirmacion;
-				cout << "¿Seguro que quieres dar de baja la clase?\n0. Sí\n1. No\n: ";
-				cin >> confirmacion;
+			// // Dar de baja toda la clase
+			// case 5:
+			// 	bool confirmacion;
+			// 	cout << "¿Seguro que quieres dar de baja la clase?\n0. Sí\n1. No\n: ";
+			// 	cin >> confirmacion;
 
-				if(confirmacion == 0){
-					cout << "Operación cancelada por usuario" << endl;
-				}
-				else if(confirmacion == 1){
-					salonA.eliminarTodo();
-				}
-				else{
-					cout << "Valor incorrecto, operación cancelada" << endl;
-				}
-				break;
-			
-			// Buscar alumno
-			case 6:	
-				cout << "¿Cómo se llama el alumno?\n: ";
-				cin >> nombre;
+			// 	if(confirmacion == 0){
+			// 		cout << "Operación cancelada por usuario" << endl;
+			// 	}
+			// 	else if(confirmacion == 1){
+			// 		salonA.eliminarTodo();
+			// 	}
+			// 	else{
+			// 		cout << "Valor incorrecto, operación cancelada" << endl;
+			// 	}
+			// 	break;
+			// 
+			// // Buscar alumno
+			// case 6:	
+			// 	cout << "¿Cómo se llama el alumno?\n: ";
+			// 	cin >> nombre;
 
-				cout << "¿Cuántos años tiene?\n: ";
-				cin >> edad;
+			// 	cout << "¿Cuántos años tiene?\n: ";
+			// 	cin >> edad;
 
-				salonA.buscar(nombre, edad);
-				break;
+			// 	salonA.buscar(nombre, edad);
+			// 	break;
 
-			// Inicializar
-			case 7:
-				salonA.inicializa();
-				break;
+			// // Inicializar
+			// case 7:
+			// 	salonA.inicializa();
+			// 	break;
 
-			// Vacía
-			case 8:
-				if (salonA.vacía() == 1)
-					cout << "La lista no está vacia" << endl;
-				else
-					cout << "La lista está vacía" << endl;
-				break;
-			
-			// Primer alumno
-			case 9:
-				salonA.primero();
-				break;
+			// // Vacía
+			// case 8:
+			// 	if (salonA.vacía() == 1)
+			// 		cout << "La lista no está vacia" << endl;
+			// 	else
+			// 		cout << "La lista está vacía" << endl;
+			// 	break;
+			// 
+			// // Primer alumno
+			// case 9:
+			// 	salonA.primero();
+			// 	break;
 
-			// Último alumno
-			case 10:
-				salonA.ultimo();
-				break;
+			// // Último alumno
+			// case 10:
+			// 	salonA.ultimo();
+			// 	break;
 
-			// Cantidad de alumnos
-			case 11:
-				cout << "El salón contiene " << salonA.tamaño() << " alumnos" << endl;
-				break;
+			// // Cantidad de alumnos
+			// case 11:
+			// 	cout << "El salón contiene " << salonA.tamaño() << " alumnos" << endl;
+			// 	break;
 
-			// Siguiente alumno
-			case 12:
-				cout << "Nombre del alumno a saber cuál es su siguiente compañero: ";
-				cin >> nombre;
-				cout << "La edad de dicho alumno: ";
-				cin >> edad;
+			// // Siguiente alumno
+			// case 12:
+			// 	cout << "Nombre del alumno a saber cuál es su siguiente compañero: ";
+			// 	cin >> nombre;
+			// 	cout << "La edad de dicho alumno: ";
+			// 	cin >> edad;
 
-				salonA.siguiente(nombre, edad);
-				break;
+			// 	salonA.siguiente(nombre, edad);
+			// 	break;
 
-			// Anterior alumno
-			case 13:
-				cout << "Nombre del alumno a saber cuál es su compañero anterior: ";
-				cin >> nombre;
-				cout << "La edad de dicho alumno: ";
-				cin >> edad;
+			// // Anterior alumno
+			// case 13:
+			// 	cout << "Nombre del alumno a saber cuál es su compañero anterior: ";
+			// 	cin >> nombre;
+			// 	cout << "La edad de dicho alumno: ";
+			// 	cin >> edad;
 
-				salonA.anterior(nombre, edad);
-				break;
-			
+			// 	salonA.anterior(nombre, edad);
+			// 	break;
+			// 
 			// Imprimir toda la lista
 			case 14:
 				salonA.mostrarTodo();

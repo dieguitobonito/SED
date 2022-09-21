@@ -1,7 +1,7 @@
 #ifndef NODO_H
 #define NODO_H
 #include <string>
-#include <Alumno.h>
+#include "Alumno.h"
 
 // Para que se puedan utilizar std::string
 using namespace std;
@@ -13,7 +13,7 @@ class Nodo{
 
 		// Constructores
 		Nodo();
-		Nodo(string, int, Alumno*);
+		Nodo(Alumno, Nodo*);
 };
 
-#endif // ALUMNO_H
+#endif // NODO_H

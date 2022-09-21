@@ -1,16 +1,14 @@
+#include "Nodo.h"
 #include "Alumno.h"
 
 // Constructor predeterminado
-Alumno::Alumno(){
-    nombre = "";
-    edad = 0;
+Nodo::Nodo(){
     sig = nullptr;
 
 }
 
 // Constructor con parámetros dados
-Alumno::Alumno(string nombre, int edad, Alumno* sig){
-	this-> nombre = nombre;
-	this->edad = edad;
+Nodo::Nodo(Alumno al, Nodo* sig){
+	this->persona = al;
 	this->sig = sig;
 }

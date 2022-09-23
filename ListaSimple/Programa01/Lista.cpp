@@ -23,6 +23,7 @@ void Lista::insertarInicio(Alumno al){
 		aux->sig = h;
 		h = aux;
 	}
+	cout << "Alumno añadido" << endl;
 }
 
 void Lista::insertarFinal(Alumno al){
@@ -43,93 +44,97 @@ void Lista::insertarFinal(Alumno al){
 }
 
 // Implementar
-void Lista::insertarPos(int d){
-	Nodo* aux = new Nodo(d, nullptr);	 
-	Nodo* auxAnt = new Nodo(d, nullptr);
+void Lista::insertarPos(Alumno al, int d){
+	Nodo* aux = new Nodo(al, nullptr);	 
+	Nodo* auxAnt = new Nodo(al, nullptr);
 
-	if(h == nullptr){
-		h = aux;
-	}
-	else{
-		bool band = true;
-		while(aux && band){
-			if(aux->dato == d){
-				band = false;
-			}
-			else{
-				auxAnt = aux;
-				aux = aux->sig;
-			}
-		}
-		if(aux == nullptr){
-			cout << "Dato no encontrado" << endl;
-		}
-		// El nodo a buscar está en el principio
-		else if(aux == h){
-			h = h->sig;
-			delete aux;
-		}
-		// El nodo está al final (se puede combinar
-		// con el de eliminar a la mitad)
-		else if(aux->sig == nullptr){
-			auxAnt->sig == nullptr;
-			delete aux;
-		}
-		// Si el nodo está a la mitad
-		else{
-			auxAnt->sig = aux->sig;
-			delete aux;
-		}
-	}
+//	if(h == nullptr){
+//		h = aux;
+//	}
+//	else{
+//		bool band = true;
+//		while(aux && band){
+//			if(aux->dato == d){
+//				band = false;
+//			}
+//			else{
+//				auxAnt = aux;
+//				aux = aux->sig;
+//			}
+//		}
+//		if(aux == nullptr){
+//			cout << "Dato no encontrado" << endl;
+//		}
+//		// El nodo a buscar está en el principio
+//		else if(aux == h){
+//			h = h->sig;
+//			delete aux;
+//		}
+//		// El nodo está al final (se puede combinar
+//		// con el de eliminar a la mitad)
+//		else if(aux->sig == nullptr){
+//			auxAnt->sig == nullptr;
+//			delete aux;
+//		}
+//		// Si el nodo está a la mitad
+//		else{
+//			auxAnt->sig = aux->sig;
+//			delete aux;
+//		}
+//	}
 }
 
 // Recibir alumno y comparar ambos datos
 void Lista::eliminar(Alumno al){
 
-	if(h == nullptr){
-		cout << "Lista inexistente" << endl;
-	}
-	else{
-		Nodo* aux = h;
-		Nodo* auxAnt = nullptr;
-		bool band = true;
-		while(aux && band){
-			if(aux->chiquillo.nombre == n && aux->chiquillo.edad == e){
-				band = false;
-			}
-			else{
-				auxAnt = aux;
-				aux = aux->sig;
-			}
-		}
-		if(aux == nullptr){
-			cout << "Dato no encontrado" << endl;
-		}
-		// El nodo a buscar está en el principio
-		else if(aux == h){
-			h = h->sig;
-			delete aux;
-		}
-		// El nodo está al final (se puede combinar
-		// con el de eliminar a la mitad)
-		else if(aux->sig == nullptr){
-			auxAnt->sig == nullptr;
-			delete aux;
-		}
-		// Si el nodo está a la mitad
-		else{
-			auxAnt->sig = aux->sig;
-			delete aux;
-		}
-	}
+	cout << "Impleméntame" << endl;
+//	if(h == nullptr){
+//		cout << "Lista inexistente" << endl;
+//	}
+//	else{
+//		Nodo* aux = h;
+//		Nodo* auxAnt = nullptr;
+//		bool band = true;
+//		while(aux && band){
+//			if(aux->.nombre == n && aux->chiquillo.edad == e){
+//				band = false;
+//			}
+//			else{
+//				auxAnt = aux;
+//				aux = aux->sig;
+//			}
+//		}
+//		if(aux == nullptr){
+//			cout << "Dato no encontrado" << endl;
+//		}
+//		// El nodo a buscar está en el principio
+//		else if(aux == h){
+//			h = h->sig;
+//			delete aux;
+//		}
+//		// El nodo está al final (se puede combinar
+//		// con el de eliminar a la mitad)
+//		else if(aux->sig == nullptr){
+//			auxAnt->sig == nullptr;
+//			delete aux;
+//		}
+//		// Si el nodo está a la mitad
+//		else{
+//			auxAnt->sig = aux->sig;
+//			delete aux;
+//		}
+//	}
 }
 
 void Lista::eliminarTodo(void){
 	cout << "Impleméntame!" << endl;
 }
 
-Nodo* Lista::buscar(Alumno){
+Nodo* Lista::buscar(Alumno al){
+	Nodo* aux = new Nodo(al, nullptr);
 	cout << "Impleméntame!" << endl;
+
+	return aux;
 }
 
 void Lista::inicializa(void){
@@ -137,7 +142,12 @@ void Lista::inicializa(void){
 }
 
 void Lista::vacia(void){
-	cout << "Impleméntame!" << endl;
+	if(h == nullptr){
+		cout << "La lista está vacía" << endl;
+	}
+	else{
+		cout << "Lista no vacía" << endl;
+	}
 }
 
 void Lista::primero(void){
@@ -148,7 +158,7 @@ void Lista::ultimo(void){
 	cout << "Impleméntame!" << endl;
 }
 
-int Lista::tamaño(void){
+void Lista::tamaño(void){
 	Nodo* aux = h;
 	int cantidad = 0;
 	if(h == nullptr){
@@ -161,7 +171,6 @@ int Lista::tamaño(void){
 		}
 		cout << "Hay " << cantidad << " elemento(s) en la lista" << endl;
 	}
-		return cantidad;
 }
 
 void Lista::siguiente(Alumno){
@@ -181,10 +190,14 @@ void Lista::mostrarTodo(void){
 	}
 	else{
 		// Mientras aux tenga un valor
+		cout << "Número de lista, nombre y edad" << endl;
+		int contador = 1;
 		while(aux){
-			cout << aux->dato.nombre << endl;
+			cout << contador << ".- ";
+			cout << aux->niño.nombre << ", ";
+			cout << aux->niño.edad << endl;
 			aux = aux->sig;
-
+			contador++;
 		}
 	}
 }

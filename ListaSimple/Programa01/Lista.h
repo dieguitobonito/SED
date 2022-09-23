@@ -28,7 +28,7 @@ class Lista{
 	void vacia(void);
 	void primero(void);
 	void ultimo(void);
-	int tamaño(void);
+	void tamaño(void);
 	void siguiente(Alumno);
 	void anterior(Alumno);
         void mostrarTodo(void);

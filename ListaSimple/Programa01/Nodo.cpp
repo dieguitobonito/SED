@@ -2,8 +2,8 @@
 
 // Constructor predeterminado
 Nodo::Nodo(){
-    dato.nombre = "";
-    dato.edad = 0;
+    niño.nombre = "";
+    niño.edad = 0;
     sig = nullptr;
 
 }

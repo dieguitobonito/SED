@@ -48,82 +48,54 @@ void Lista::insertarPos(Alumno al, int d){
 	Nodo* aux = new Nodo(al, nullptr);	 
 	Nodo* auxAnt = new Nodo(al, nullptr);
 
-//	if(h == nullptr){
-//		h = aux;
-//	}
-//	else{
-//		bool band = true;
-//		while(aux && band){
-//			if(aux->dato == d){
-//				band = false;
-//			}
-//			else{
-//				auxAnt = aux;
-//				aux = aux->sig;
-//			}
-//		}
-//		if(aux == nullptr){
-//			cout << "Dato no encontrado" << endl;
-//		}
-//		// El nodo a buscar está en el principio
-//		else if(aux == h){
-//			h = h->sig;
-//			delete aux;
-//		}
-//		// El nodo está al final (se puede combinar
-//		// con el de eliminar a la mitad)
-//		else if(aux->sig == nullptr){
-//			auxAnt->sig == nullptr;
-//			delete aux;
-//		}
-//		// Si el nodo está a la mitad
-//		else{
-//			auxAnt->sig = aux->sig;
-//			delete aux;
-//		}
-//	}
 }
 
 // Recibir alumno y comparar ambos datos
 void Lista::eliminar(Alumno al){
 
-	cout << "Impleméntame" << endl;
-//	if(h == nullptr){
-//		cout << "Lista inexistente" << endl;
-//	}
-//	else{
-//		Nodo* aux = h;
-//		Nodo* auxAnt = nullptr;
-//		bool band = true;
-//		while(aux && band){
-//			if(aux->.nombre == n && aux->chiquillo.edad == e){
-//				band = false;
-//			}
-//			else{
-//				auxAnt = aux;
-//				aux = aux->sig;
-//			}
-//		}
-//		if(aux == nullptr){
-//			cout << "Dato no encontrado" << endl;
-//		}
-//		// El nodo a buscar está en el principio
-//		else if(aux == h){
-//			h = h->sig;
-//			delete aux;
-//		}
-//		// El nodo está al final (se puede combinar
-//		// con el de eliminar a la mitad)
-//		else if(aux->sig == nullptr){
-//			auxAnt->sig == nullptr;
-//			delete aux;
-//		}
-//		// Si el nodo está a la mitad
-//		else{
-//			auxAnt->sig = aux->sig;
-//			delete aux;
-//		}
-//	}
+	if(h == nullptr){
+		cout << "Lista inexistente" << endl;
+	}
+	else{
+		Nodo* aux = h;
+		Nodo* auxAnt = nullptr;
+		// Necesitamos una variable dinámica
+		// para borrar correctamente
+		Nodo* auxEliminable = new Nodo();
+
+		bool valoresEncontrados = false;
+
+		while(aux && !valoresEncontrados){
+			if(aux->niño.nombre == al.nombre && aux->niño.edad == al.edad){
+				valoresEncontrados = true;
+			}
+			else{
+				auxAnt = aux;
+				aux = aux->sig;
+			}
+		}
+		if(!aux && !valoresEncontrados){
+			cout << "No se encontró el alumno" << endl;
+		}
+		// Está al inicio de la lista
+		else if(aux == h){
+			auxEliminable = aux;
+			h = aux->sig;
+			delete auxEliminable;
+		}
+		// Al final de la lista
+		else if(!aux->sig){
+			auxEliminable = aux;
+			auxAnt->sig = nullptr;
+			delete auxEliminable;
+		}
+		// En medio
+		else{
+			auxEliminable = aux;
+			auxAnt->sig = aux->sig;
+			delete auxEliminable;
+		}
+	}
 }
 
 void Lista::eliminarTodo(void){
@@ -192,7 +164,7 @@ void Lista::mostrarTodo(void){
 		// Mientras aux tenga un valor
 		cout << "Número de lista, nombre y edad" << endl;
 		int contador = 1;
-		while(aux){
+		while(aux != nullptr){
 			cout << contador << ".- ";
 			cout << aux->niño.nombre << ", ";
 			cout << aux->niño.edad << endl;

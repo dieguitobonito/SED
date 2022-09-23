@@ -17,18 +17,21 @@ class Lista{
 
         // Métodos
         void insertarInicio(Alumno);
-        void imprimirTodo(void);
-	// Comparar ambos datos de alumno
+	void insertarFinal(Alumno);
+	void insertarPos(Alumno, int);
 	void eliminar(Alumno);
+	void eliminarTodo(void);
+	// Comparar ambos datos de alumno
 	Nodo* buscar(Alumno); 
-	// Mandar h
-	void inicializar(void);
+	// Mandar header
+	void inicializa(void);
 	void vacia(void);
-	Alumno primero(void);
-
-	// void insertarPosicion(int);
-//	void cantidadElementos(void);
-//	int cantidadElementosR(void);
+	void primero(void);
+	void ultimo(void);
+	int tamaño(void);
+	void siguiente(Alumno);
+	void anterior(Alumno);
+        void mostrarTodo(void);
 };
 
 #endif // LISTA_H

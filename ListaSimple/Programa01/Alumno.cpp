@@ -1,16 +1,16 @@
-#include <string>
 #include "Alumno.h"
+#include <string>
 
 using namespace std;
 
 // Constructor predeterminado
 Alumno::Alumno(){
-	edad = 0;
-	nombre = "";
+    	nombre = "";
+    	edad = 0;
+
 }
 
-// Constructor por parámetros
-Alumno::Alumno(int edad, string nombre){
-	this->edad = edad;
+Alumno::Alumno(string nombre, int edad){
 	this->nombre = nombre;
+    	this->edad = edad;
 }

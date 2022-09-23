@@ -7,12 +7,12 @@ using namespace std;
 
 class Alumno{
 	public:
-		// Atributos
-		int edad;
 		string nombre;
+		int edad;
 
 		// Constructores
 		Alumno();
-		Alumno(int, string);
+		Alumno(string, int);
 };
+
 #endif // ALUMNO_H

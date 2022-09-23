@@ -2,10 +2,9 @@
 #define LISTA_H
 
 #include "Nodo.h"
+#include "Alumno.h"
 #include <iostream>
-#include "string.h"
-
-
+#include <string>
 using namespace std;
 
 class Lista{
@@ -16,22 +15,20 @@ class Lista{
 	Lista();
         Lista(Nodo*);
 
-        // Métodos	
-	
-        void insertarInicio(Alumno); // 1 yes
-//	void insertarFinal(string, int); // 2 
-//	void insertarPos(int, string, int); // 3
-//	void eliminar(string, int); // 4
-//	void eliminarTodo(void); // 5
-//	void buscar(string, int); // 6
-//	void inicializa(void); // 7
-//	bool vacía(void); // 8
-//	void primero(void); // 9
-//	void ultimo(void); // 10
-//	int tamaño(void); // 11
-//	void siguiente(string, int); // 12
-//	void anterior(string, int); // 13
-	void mostrarTodo(void); // 14
+        // Métodos
+        void insertarInicio(Alumno);
+        void imprimirTodo(void);
+	// Comparar ambos datos de alumno
+	void eliminar(Alumno);
+	Nodo* buscar(Alumno); 
+	// Mandar h
+	void inicializar(void);
+	void vacia(void);
+	Alumno primero(void);
+
+	// void insertarPosicion(int);
+//	void cantidadElementos(void);
+//	int cantidadElementosR(void);
 };
 
 #endif // LISTA_H

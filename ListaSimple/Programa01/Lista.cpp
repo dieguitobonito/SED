@@ -138,7 +138,8 @@ void Lista::buscar(Alumno al){
 }
 
 void Lista::inicializa(void){
-	cout << "Impleméntame!" << endl;
+	h = new Nodo();
+	cout << "Lista inicializada" << endl;
 }
 
 void Lista::vacia(void){
@@ -155,7 +156,17 @@ void Lista::primero(void){
 }
 
 void Lista::ultimo(void){
-	cout << "Impleméntame!" << endl;
+	if(!h){
+		cout << "Lista inexistente" << endl;
+	}
+	else{
+		Nodo* aux = h;
+		while(aux->sig){
+			aux = aux->sig;
+		}
+		cout << "El último de la lista es: " << endl;
+		cout << aux->niño.nombre << ", " << aux->niño.edad << endl;
+	}
 }
 
 void Lista::tamaño(void){

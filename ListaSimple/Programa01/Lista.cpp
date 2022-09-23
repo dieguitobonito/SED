@@ -152,7 +152,13 @@ void Lista::vacia(void){
 }
 
 void Lista::primero(void){
-	cout << "Impleméntame!" << endl;
+	if(!h){
+		cout << "¡Ni siquiera existe lista!" << endl;
+	}
+	else{
+		cout << "El primero de la lista es: ";
+		cout << h->niño.nombre << ", " << h->niño.edad << endl;
+	}
 }
 
 void Lista::ultimo(void){
@@ -164,7 +170,7 @@ void Lista::ultimo(void){
 		while(aux->sig){
 			aux = aux->sig;
 		}
-		cout << "El último de la lista es: " << endl;
+		cout << "El último de la lista es: ";
 		cout << aux->niño.nombre << ", " << aux->niño.edad << endl;
 	}
 }

@@ -45,8 +45,6 @@ void Lista::insertarFinal(Alumno al){
 
 // Implementar
 void Lista::insertarPos(Alumno al, int d){
-	Nodo* aux = new Nodo(al, nullptr);	 
-	Nodo* auxAnt = new Nodo(al, nullptr);
 
 }
 
@@ -99,14 +97,44 @@ void Lista::eliminar(Alumno al){
 }
 
 void Lista::eliminarTodo(void){
-	cout << "Impleméntame!" << endl;
+	if(h == nullptr){
+		cout << "No hay lista que eliminar" << endl;
+	}
+	else{
+		Nodo* aux = h;
+		Nodo* auxAnt = new Nodo();
+		while(aux){
+			auxAnt = aux;
+			aux = aux->sig;
+			delete auxAnt;
+		}
+		h = nullptr;
+		cout << "Lista eliminada" << endl;
+	}
 }
 
-Nodo* Lista::buscar(Alumno al){
-	Nodo* aux = new Nodo(al, nullptr);
-	cout << "Impleméntame!" << endl;
+void Lista::buscar(Alumno al){
+	Nodo* comp = new Nodo(al, nullptr);
+	Nodo* aux = h;
+	bool encontrado = false;	
 
-	return aux;
+	if(h == nullptr){
+		cout << "¡No hay lista por la cual buscar!" << endl;
+	}
+	else{
+		while(aux && !encontrado){
+			if(aux->niño.nombre == comp->niño.nombre && aux->niño.edad == comp->niño.edad){
+				encontrado = true;
+			}
+			aux = aux->sig;
+		}
+		if(aux && encontrado){
+			cout << "Alumno encontrado en dirección: " << aux << endl;
+		}
+		else{
+			cout << "Alumno no encontrado" << endl;
+		}
+	}
 }
 
 void Lista::inicializa(void){

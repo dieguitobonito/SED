@@ -65,6 +65,7 @@ void menu(){
 				break;
 			}
 			case 3:{
+				principal.mostrarTodo();
 				cout << "¿En qué posición quieres insertar?" << endl;
 				cin >> posicion;
 				cout << "¿Cómo se llama el alumno?\n: ";

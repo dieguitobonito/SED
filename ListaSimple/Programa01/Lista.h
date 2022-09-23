@@ -22,7 +22,7 @@ class Lista{
 	void eliminar(Alumno);
 	void eliminarTodo(void);
 	// Comparar ambos datos de alumno
-	Nodo* buscar(Alumno); 
+	void buscar(Alumno); 
 	// Mandar header
 	void inicializa(void);
 	void vacia(void);

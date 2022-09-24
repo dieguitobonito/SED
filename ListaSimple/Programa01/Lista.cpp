@@ -217,38 +217,38 @@ void Lista::siguiente(Alumno al){
 			cout << "Alumno no encontrado" << endl;
 		}
 	}
-	// Nodo* comparar = new Nodo(al, nullptr);
-	// Nodo* aux = h;
-	// bool encontrado = false;
-	// if(h == nullptr){
-	// 	cout << "No hay lista" << endl;
-	// }
-	// else{
-	// 	while(aux && !encontrado){
-	// 		if(aux->niño.nombre == comparar->niño.nombre && aux->niño.edad == comparar->niño.edad){
-	// 			cout << "Lo encontré";
-	// 			encontrado = true;	
-	// 		}
-	// 		else{
-	// 			aux = aux->sig;
-	// 		}
-	// 	}
-	// 	if(encontrado == true){
-	// 		if(aux->sig = nullptr){
-	// 			cout << aux->niño.nombre << " es el último en la lista" << endl;
-	// 		}
-	// 		else{
-	// 			cout << "De " << aux->niño.nombre << " sigue " << aux->sig->niño.nombre << endl;
-	// 		}
-	// 	}
-	// 	else{
-	// 		cout << "No se encontró el alumno" << endl;
-	// 	}
-	// }
 }
 
-void Lista::anterior(Alumno){
-	cout << "Impleméntame!" << endl;
+void Lista::anterior(Alumno al){
+	Nodo* comp = new Nodo(al, nullptr);
+	Nodo* aux = h;
+	Nodo* auxAnt = nullptr;
+	bool encontrado = false;	
+
+	if(h == nullptr){
+		cout << "¡No hay lista por la cual buscar!" << endl;
+	}
+	else{
+		while(aux && !encontrado){
+			if(aux->niño.nombre == comp->niño.nombre && aux->niño.edad == comp->niño.edad){
+				encontrado = true;
+			}
+			else{
+				auxAnt = aux;
+				aux = aux->sig;
+			}
+		}
+		if(!auxAnt && encontrado){
+			comp = aux->sig;
+			cout << "De " << aux->niño.nombre << " no hay nadie antes" << endl;
+		}
+		else if(auxAnt->sig && encontrado){
+			cout << "Antes de " << aux->niño.nombre << " está " << auxAnt->niño.nombre << endl;
+		}
+		else{
+			cout << "Alumno no encontrado" << endl;
+		}
+	}
 }
 
 void Lista::mostrarTodo(void){

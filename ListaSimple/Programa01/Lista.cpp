@@ -45,43 +45,49 @@ void Lista::insertarFinal(Alumno al){
 
 // Implementar
 void Lista::insertarPos(Alumno al, int d){
+	cout << "Entré a la función" << endl;
+	Nodo* aux = h;
+	Nodo* insertable = new Nodo(al, nullptr);
+	Nodo* ant = nullptr;
+	int posible = 0;
+	int cantidad = 0;
+
 	if(h == nullptr){
 		cout << "La lista no ha sido creada" << endl;
 	}
 	else{
-		Nodo* nuevo = new Nodo(al, nullptr);
-		Nodo* auxAnt = nullptr;
-		Nodo* aux = h;
-		Nodo* auxCont = h;
-		int tamaño = 0;
-		int i = 0;
-		// Que el usuario no hay insertado valor fuera de rango
-		while(auxCont){
-			auxCont = auxCont->sig;
-			tamaño++;
+		// Saber cuántos nodos hay
+		while(aux != nullptr){
+			aux = aux->sig;
+			cantidad++;
 		}
 
-		if(d < tamaño && d > 0){
-			while(i == d){
-				auxAnt = aux;
+		// Que el valor esté en rango
+		if(d > 0 && d <= cantidad){
+			aux = h;
+			// El - 1 para ajustarlo a la forma en que insertarías en la vida real, supongo...
+			while(d - 1 > 0){
+				ant = aux;
 				aux = aux->sig;
+				d--;
 			}
+			// Está al principio
 			if(aux == h){
-				nuevo->sig = aux;
-				h = nuevo;
+				insertable->sig = h;
+				h = insertable;
 			}
-			else if(aux){
-				nuevo->sig = auxAnt->sig;
-				auxAnt->sig = nuevo;
-			}
+			// Está en otra posición, aplica para
+			// el final
 			else{
-				cout << "Alumno no encontrado" << endl;
+				insertable->sig = ant->sig;
+				ant->sig = insertable;
 			}
+			cout << "Alumno insertado" << endl;
 		}
 		else{
-			cout << "Posición fuera de rango" << endl;
+			cout << "Valor fuera del rango de la lista" << endl;
 		}
-			
+		
 	}
 }
 

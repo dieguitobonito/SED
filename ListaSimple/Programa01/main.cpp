@@ -41,7 +41,6 @@ void menu(){
 		switch(opc){
 			// Añadir al inicio
 			case 1:{
-
 				cout << "¿Cómo se llama el alumno?\n: ";
 				cin >> name;
 				cout << "¿Cuántos años tiene?\n: ";

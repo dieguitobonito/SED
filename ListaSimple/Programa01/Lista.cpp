@@ -36,7 +36,7 @@ void Lista::insertarFinal(Alumno al){
 	else{
 		// A partir de un nodo
 		Nodo* aux = h;
-		while(aux->sig  != nullptr){
+		while(aux->sig != nullptr){
 			aux = aux->sig;
 		}
 		aux->sig = auxFinal;
@@ -45,8 +45,46 @@ void Lista::insertarFinal(Alumno al){
 
 // Implementar
 void Lista::insertarPos(Alumno al, int d){
+	if(h == nullptr){
+		cout << "La lista no ha sido creada" << endl;
+	}
+	else{
+		Nodo* nuevo = new Nodo(al, nullptr);
+		Nodo* auxAnt = nullptr;
+		Nodo* aux = h;
+		Nodo* auxCont = h;
+		int tamaño = 0;
+		int i = 0;
+		// Que el usuario no hay insertado valor fuera de rango
+		while(auxCont){
+			auxCont = auxCont->sig;
+			tamaño++;
+		}
 
+		if(d < tamaño && d > 0){
+			while(i == d){
+				auxAnt = aux;
+				aux = aux->sig;
+			}
+			if(aux == h){
+				nuevo->sig = aux;
+				h = nuevo;
+			}
+			else if(aux){
+				nuevo->sig = auxAnt->sig;
+				auxAnt->sig = nuevo;
+			}
+			else{
+				cout << "Alumno no encontrado" << endl;
+			}
+		}
+		else{
+			cout << "Posición fuera de rango" << endl;
+		}
+			
+	}
 }
+
 
 // Recibir alumno y comparar ambos datos
 void Lista::eliminar(Alumno al){

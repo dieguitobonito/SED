@@ -134,6 +134,7 @@ void menu(){
 				cout << "Dame el nombre del alumno que quieras saber quién sigue de él\n: ";
 				cin >> name;
 				cout << "La edad de dicho\n: ";
+				cin >> age;
 				Alumno niño(name, age);
 				principal.siguiente(niño);
 				break;
@@ -142,6 +143,7 @@ void menu(){
 				cout << "Dame el nombre del alumno que quieras saber quién sigue antes de él\n: ";
 				cin >> name;
 				cout << "La edad de dicho\n: ";
+				cin >> age;
 				Alumno niño(name, age);
 				principal.anterior(niño);
 				break;

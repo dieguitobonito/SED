@@ -3,10 +3,12 @@
 // Constructor por defecto
 Lista::Lista(){
 	h = nullptr;
+	t = nullptr;
 }
 
-Lista::Lista(Nodo* sigPos){
+Lista::Lista(Nodo* sigPos, Nodo* antPos){
 	this->h = sigPos;
+	this->t = antPos;
 }
 
 /*

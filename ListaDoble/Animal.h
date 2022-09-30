@@ -9,10 +9,11 @@ class Alumno{
 	public:
 		string nombre;
 		int edad;
+		unsigned int id;
 
 		// Constructores
 		Alumno();
-		Alumno(string, int);
+		Alumno(string, int, unsigned int);
 };
 
 #endif // ALUMNO_H

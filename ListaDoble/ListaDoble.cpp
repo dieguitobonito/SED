@@ -1,12 +1,12 @@
-#include "Lista.h"
+#include "ListaDoble.h"
 
 // Constructor por defecto
-Lista::Lista(){
+ListaDoble::ListaDoble(){
 	h = nullptr;
 	t = nullptr;
 }
 
-Lista::Lista(Nodo* sigPos, Nodo* antPos){
+ListaDoble::ListaDoble(Nodo* sigPos, Nodo* antPos){
 	this->h = sigPos;
 	this->t = antPos;
 }
@@ -15,7 +15,7 @@ Lista::Lista(Nodo* sigPos, Nodo* antPos){
 ----- Métodos -----
 */
 
-void Lista::insertarInicio(Alumno al){
+void ListaDoble::insertarInicio(Alumno al){
 	Nodo* aux = new Nodo(al, nullptr);
 	
 	if(h == nullptr){
@@ -28,7 +28,7 @@ void Lista::insertarInicio(Alumno al){
 	cout << "Alumno añadido" << endl;
 }
 
-void Lista::insertarFinal(Alumno al){
+void ListaDoble::insertarFinal(Alumno al){
 	Nodo* auxFinal = new Nodo(al, nullptr);
 
 	// No hay ningún nodo
@@ -46,7 +46,7 @@ void Lista::insertarFinal(Alumno al){
 }
 
 // Implementar
-void Lista::insertarPos(Alumno al, int d){
+void ListaDoble::insertarPos(Alumno al, int d){
 	cout << "Entré a la función" << endl;
 	Nodo* aux = h;
 	Nodo* insertable = new Nodo(al, nullptr);
@@ -181,12 +181,12 @@ void Lista::buscar(Alumno al){
 	}
 }
 
-void Lista::inicializa(void){
+void ListaDoble::inicializa(void){
 	h = new Nodo();
 	cout << "Lista inicializada" << endl;
 }
 
-void Lista::vacia(void){
+void ListaDoble::vacia(void){
 	if(h == nullptr){
 		cout << "La lista está vacía" << endl;
 	}
@@ -195,7 +195,7 @@ void Lista::vacia(void){
 	}
 }
 
-void Lista::primero(void){
+void ListaDoble::primero(void){
 	if(!h){
 		cout << "¡Ni siquiera existe lista!" << endl;
 	}
@@ -205,7 +205,7 @@ void Lista::primero(void){
 	}
 }
 
-void Lista::ultimo(void){
+void ListaDoble::ultimo(void){
 	if(!h){
 		cout << "Lista inexistente" << endl;
 	}
@@ -219,7 +219,7 @@ void Lista::ultimo(void){
 	}
 }
 
-void Lista::tamaño(void){
+void ListaDoble::tamaño(void){
 	Nodo* aux = h;
 	int cantidad = 0;
 	if(h == nullptr){
@@ -234,7 +234,7 @@ void Lista::tamaño(void){
 	}
 }
 
-void Lista::siguiente(Alumno al){
+void ListaDoble::siguiente(Alumno al){
 	Nodo* comp = new Nodo(al, nullptr);
 	Nodo* aux = h;
 	bool encontrado = false;	

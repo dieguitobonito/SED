@@ -1,4 +1,4 @@
-#include "Alumno.h"
+#include "Animal.h"
 #include <string>
 
 using namespace std;
@@ -7,9 +7,11 @@ using namespace std;
 Alumno::Alumno(){
     	nombre = "";
     	edad = 0;
+	id = 0;
 }
 
-Alumno::Alumno(string nombre, int edad){
+Alumno::Alumno(string nombre, int edad, unsigned int id){
 	this->nombre = nombre;
     	this->edad = edad;
+	this->id = id;
 }

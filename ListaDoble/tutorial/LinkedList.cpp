@@ -1,5 +1,9 @@
-#include "LinkedList.h"
+// El orden de los headers importa?
 #include "Node.h"
+#include "LinkedList.h"
+
+#include <iostream>
+using namespace std;
 
 LinkedList::LinkedList(){
 	header = new Node;

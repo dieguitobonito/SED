@@ -1,5 +1,6 @@
 #include "ListaDoble.h"
 #include <iostream>
+#include <string>
 using namespace std;
 
 ListaDoble::ListaDoble(){
@@ -9,41 +10,20 @@ ListaDoble::ListaDoble(){
 	t->ant = h;
 }
 
-// Será que necesitan apuntar al mismo nodo?
 ListaDoble::ListaDoble(Nodo* sig, Nodo* ant ){
 	this->h = sig;
 	this->t = ant;
 }
 
-void ListaDoble::insertar(Alumno al, unsigned int pos){
+// Actualizar conforme a buscar
+void ListaDoble::insertar(Alumno al, Nodo* pos){
 	Nodo* aux = new Nodo(al, nullptr, nullptr);
-	if(vacia()){
-		cout << "La lista no está inicializada" << endl;
-	}
-	else{
-		// Recorriendo a posición
-		// -1 porque la lista se
-		// muestra con un adelanto
-		aux = h;
-		unsigned int cont = pos;
-		while(cont - 1 > 0){
-			cont--;
-			aux->ant = aux;
-			aux->sig = aux->sig;
-			aux = aux->sig;
-		}
-		// Insertando al final
-		if(aux->sig == nullptr){
-			aux->ant->sig = aux;
-			
-			
-			
-		}
-		if(aux->ant == nullptr){
-			aux->ant = 
-		}
+	Nodo* rem = pos;
 
-	}
+	aux->sig = rem;
+	aux->ant = rem->ant;
+	// rem->ant->sig y rem->ant apuntarán a aux
+	rem->ant->sig = rem->ant = aux;
 }
 
 void ListaDoble::eliminar(unsigned int pos){
@@ -54,9 +34,13 @@ void ListaDoble::eliminarTodo(void){
 	cout << "Impleméntame" << endl;
 }
 
-Nodo* ListaDoble::buscar(Alumno al){
-	cout << "Impleméntame" << endl;
-	Nodo* aux;
+Nodo* ListaDoble::buscar(string nom, string ed){
+	Nodo* dir;
+	dir = h;
+	// Iterando por la lista
+	while(dir->dato.nombre == nom && dir->dato.ed == al.edad){
+		dir = dir->sig;
+	}
 	return aux;
 }
 
@@ -65,11 +49,8 @@ void ListaDoble::inicializa(void){
 }
 
 bool ListaDoble::vacia(void){
-	bool vacia = true;
-	if(h->sig && t->ant){
-		vacia = false;
-	}
-	return vacia;
+	// Retorna true si se cumple
+	return (h->sig == t);
 }
 
 Nodo* ListaDoble::primero(void){
@@ -79,9 +60,10 @@ Nodo* ListaDoble::primero(void){
 }
 
 Nodo* ListaDoble::ultimo(void){
-	cout << "Impleméntame" << endl;
-	Nodo* aux;
-	return aux;
+	if(t->ant == t){
+		return nullptr;
+	}
+	return t;
 }
 
 unsigned int ListaDoble::tamaño(void){

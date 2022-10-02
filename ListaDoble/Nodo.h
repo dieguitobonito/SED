@@ -5,7 +5,7 @@
 
 class Nodo{
 	public:
-		Alumno niño;
+		Alumno dato;
 		Nodo* sig;
 		Nodo* ant;
 

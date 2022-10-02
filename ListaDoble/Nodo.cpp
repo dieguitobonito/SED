@@ -6,8 +6,8 @@ Nodo::Nodo(){
 	ant = nullptr;
 }
 
-Nodo::Nodo(Alumno niño, Nodo* ant, Nodo* sig){
-	this->niño = niño;
+Nodo::Nodo(Alumno dato, Nodo* ant, Nodo* sig){
+	this->dato = dato;
 	this->ant = ant;
 	this->sig = sig;
 }

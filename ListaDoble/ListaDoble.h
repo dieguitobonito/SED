@@ -11,10 +11,10 @@ class ListaDoble{
 		ListaDoble();
 		ListaDoble(Nodo*, Nodo*);
 
-		void insertar(Alumno, unsigned int);
+		void insertar(Alumno, Nodo*);
 		void eliminar(unsigned int);
 		void eliminarTodo(void);
-		Nodo* buscar(Alumno);
+		Nodo* buscar(string, string);
 		void inicializa(void);
 		bool vacia(void);
 		Nodo* primero(void);

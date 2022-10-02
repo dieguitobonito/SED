@@ -7,6 +7,7 @@ using namespace std;
 
 void menu(void){
 	unsigned int opc = 0;
+	Nodo* b;
 	string n;
 	unsigned int e;
 	unsigned int pos;
@@ -31,21 +32,25 @@ void menu(void){
 
 		switch(opc){
 			// insertar
-			case 1:{
+			case 1:{ 
 				salonA.mostrarTodo();
-				cout << "En qué posición quieres insertar" << endl;
-				cin >> pos;
-				if(pos > 0 && pos <= salonA.tamaño()){
+				cout << "Nombre del nodo en el cual insertar\n: ";
+				cin >> n;
+				cout << "Edad\n: ";
+				cin >> e;
+				b = salonA.buscar(n, e);
+
+				if(b){
 					cout << "Nombre\n: " << endl;
 					cin >> n;
 					cout << "Edad\n: " << endl;
 					cin >> e;
 					Alumno kid(n, e);
-					salonA.insertar(kid, pos);
+					salonA.insertar(kid, b);
 					cout << "Alumno insertado" << endl;
 				}
 				else{
-					cout << "Posición fuera de rango" << endl;
+					cout << "Nodo no encontrado" << endl;
 				}
 				break;
 			}
@@ -59,6 +64,17 @@ void menu(void){
 			}
 			// buscar
 			case 4:{
+				cout << "Nombre\n: ";
+				cin >> n;
+				cout << "Edad\n: ";
+				cin >> e;
+				b = salonA.buscar(n, e);
+				if(b){
+					cout << "Dato encontrado en ";
+					cout << b; 
+				}else{
+					cout << "Dato no encontrado" << endl;
+				}
 				break;
 			}
 			// inicializa

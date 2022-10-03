@@ -2,10 +2,14 @@
 #define NODE_H
 
 #include <string>
+#include "Alumno.h"
 
 class Node{
+	public:
+		Node();
+		Node(Alumno, Node*, Node*);
 	private:
-		int data;
+		Alumno data;
 		Node* next;
 		Node* prev;
 

@@ -6,25 +6,30 @@
 using namespace std;
 
 LinkedList::LinkedList(){
-	header = new Node;
-	trailer = new Node;
+	header = new Node();
+	trailer = new Node();
 	header->next = trailer;
 	trailer->prev = header;
 	header->prev = nullptr;
 	trailer->next = nullptr;
 }
 
-int LinkedList::getFront(){
+// Return data instead of pointer
+Node* LinkedList::getFront(){
+	Node* aux;
+	aux = header->next;
 	return header->next->data;
 }
 
-int LinkedList::getBack(){
+// Same as getfront
+Node* LinkedList::getBack(){
 	return trailer->prev->data;
 }
 
-void LinkedList::addFront(int dt){
-	Node* nd = new Node;
-	nd->data = dt;
+void LinkedList::addFront(Alumno dt){
+	Node* nd = new Node(dt, nullptr, nullptr);
+	nd->data.name = dt.name;
+	nd->data.age = dt.age;
 	nd->prev = header;
 	nd->next = header->next;
 
@@ -32,8 +37,8 @@ void LinkedList::addFront(int dt){
 	header->next = nd;
 }
 
-void LinkedList::addBack(int dt){
-	Node* nd = new Node;
+void LinkedList::addBack(Alumno dt){
+	Node* nd = new Node(dt, nullptr, nullptr);
 	nd->data = dt;
 	nd->prev = trailer->prev;
 	nd->next = trailer;
@@ -61,9 +66,12 @@ void LinkedList::printReverse(){
 	// último dato
 	Node* tmp = trailer->prev;
 
+	unsigned int count = 0;
 	while(tmp != header){
-		cout << tmp->data << endl;
-		tmp = tmp->prev;
+		count++;
+		cout << count << ".- ";
+		cout << tmp->data.name << tmp->data.age << endl;
+		tmp = tmp->next;
 	}
 }
 
@@ -72,8 +80,11 @@ void LinkedList::printForward(){
 	// primer dato
 	Node* tmp = header->next;
 
+	unsigned int count = 0;
 	while(tmp != trailer){
-		cout << tmp->data << endl;
+		count++;
+		cout << count << ".- ";
+		cout << tmp->data.name << tmp->data.age << endl;
 		tmp = tmp->next;
 	}
 }
@@ -86,4 +97,8 @@ LinkedList::~LinkedList(){
 
 	delete header;
 	delete trailer;
+}
+
+bool LinkedList::isEmpty(void){
+	return (header->next == trailer);
 }

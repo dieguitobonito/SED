@@ -9,14 +9,15 @@ class LinkedList{
 		// Puede que no se
 		// necesite destructor
 		~LinkedList();
-		int getFront();
-		int getBack();
-		void addFront(int dt);
-		void addBack(int dt);
-		void removeFront();
-		void removeBack();
-		void printReverse();
-		void printForward();
+		Node* getFront(void);
+		Node* getBack(void);
+		void addFront(Alumno);
+		void addBack(Alumno);
+		void removeFront(void);
+		void removeBack(void);
+		void printReverse(void);
+		void printForward(void);
+		bool isEmpty(void);
 	private:
 		// Sentinels
 		Node* header;

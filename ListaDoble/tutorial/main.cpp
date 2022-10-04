@@ -30,28 +30,40 @@ void menu(){
 
 		switch(option){
 			case 1:{
-				cout << "Inserte nombre\n: ";
+				cout << "\nInserte nombre\n: ";
 				cin >> menu_name;
 				cout << "Inserte edad\n: ";
 				cin >> menu_age;
-
+				cout << "\n";
+				break;
+			}
+			case 2:{
+				if(!ld.isEmpty()){
+					cout << "\nInserte nombre\n: ";
+					cin >> menu_name;
+					cout << "Inserte edad\n: ";
+					cin >> menu_age;
+					cout << "\n";
+					ld.deleteThis(menu_name, menu_age);
+				}else{
+					cout << "\n¡Ni siquiera hay lista!\n" << endl;
+				}
+				break;
 			}
 			case 6:{
-				cout << "\n";
 				if(ld.isEmpty()){
-					cout << "Lista vacía" << endl;
+					cout << "\nLista vacía\n" << endl;
 				}else{
-					cout << "Lista no vacía" << endl;
+					cout << "\nLista no vacía\n" << endl;
 				}
-				cout << "\n";
 				break;
 			}
 			case 13:{
-				cout << "Hasta luego" << endl;
+				cout << "\nHasta luego\n" << endl;
 				break;
 			}
 			default:{
-				cout << "Opción inválida" << endl;
+				cout << "\nOpción inválida\n" << endl;
 			}
 		}
 	}

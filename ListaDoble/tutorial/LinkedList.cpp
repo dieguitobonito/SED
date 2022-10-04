@@ -15,15 +15,17 @@ LinkedList::LinkedList(){
 }
 
 // Return data instead of pointer
-Node* LinkedList::getFront(){
-	Node* aux;
-	aux = header->next;
-	return header->next->data;
+void LinkedList::getFront(){
+	cout << "El primero es: ";
+	cout << header->next->data.name << ", ";
+	cout << header->next->data.age << endl;
 }
 
 // Same as getfront
-Node* LinkedList::getBack(){
-	return trailer->prev->data;
+void LinkedList::getBack(){
+	cout << "El último es: ";
+	cout << trailer->prev->data.name << ", ";
+	cout << trailer->prev->data.age << endl;
 }
 
 void LinkedList::addFront(Alumno dt){
@@ -101,4 +103,13 @@ LinkedList::~LinkedList(){
 
 bool LinkedList::isEmpty(void){
 	return (header->next == trailer);
+}
+
+void LinkedList::deleteThis(string n, unsigned int a){
+	Node* aux;
+	if(!isEmpty()){
+	}else{
+		cout << "\nLista vacía, no hay por eliminar\n" << endl;
+	}
+
 }

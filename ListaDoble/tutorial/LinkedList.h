@@ -9,10 +9,11 @@ class LinkedList{
 		// Puede que no se
 		// necesite destructor
 		~LinkedList();
-		Node* getFront(void);
-		Node* getBack(void);
+		void getFront(void);
+		void getBack(void);
 		void addFront(Alumno);
 		void addBack(Alumno);
+		void deleteThis(string, unsigned int);
 		void removeFront(void);
 		void removeBack(void);
 		void printReverse(void);

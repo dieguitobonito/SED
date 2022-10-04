@@ -6,9 +6,13 @@ using namespace std;
 
 class Alumno{
 	public:
+		Alumno();
 		Alumno(string, unsigned int);
 	private:
 		string name;
 		unsigned int age;
+
+	friend class Node;
+	friend class LinkedList;
 };
 #endif

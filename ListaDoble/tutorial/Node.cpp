@@ -1,8 +1,7 @@
 #include "Node.h"
 
 Node::Node(){
-	data.name = "Fulanito";
-	data.age = 0;
+	Alumno();
 	next = nullptr;
 	prev = nullptr;
 }

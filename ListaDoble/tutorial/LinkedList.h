@@ -22,6 +22,7 @@ class LinkedList{
 		bool isEmpty(void);
 		void initialize(void);
 		Node* find(string, unsigned int);
+		unsigned int size(void);
 	private:
 		// Sentinels
 		Node* header;

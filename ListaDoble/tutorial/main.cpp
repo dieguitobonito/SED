@@ -101,6 +101,11 @@ void menu(){
 				ld.getBack();
 				break;
 			}
+			case 9:{
+				unsigned int cant = ld.size();
+				cout << "\nHay " << cant << " elemento(s) en la lista\n" << endl;
+				break;
+			}
 			case 12:{
 				if(!ld.isEmpty()){
 					ld.printForward();

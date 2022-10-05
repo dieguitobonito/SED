@@ -36,7 +36,6 @@ void LinkedList::getBack(){
 	}
 }
 
-// Hola
 void LinkedList::addFront(Alumno a){
 	Node* nd = new Node(a, nullptr, nullptr);
 
@@ -154,4 +153,16 @@ void LinkedList::initialize(void){
 	}
 
 
+}
+
+unsigned int LinkedList::size(void){
+	unsigned int cant = 0;
+	if(!isEmpty()){
+		Node* aux = header->next;
+		while(aux != trailer){
+			cant++;
+			aux = aux->next;
+		}
+	}
+	return cant;	
 }

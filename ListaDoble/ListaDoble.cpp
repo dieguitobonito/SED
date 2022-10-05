@@ -20,6 +20,13 @@ void ListaDoble::insertar(Alumno al, Nodo* pos){
 	Nodo* aux = new Nodo(al, nullptr, nullptr);
 	Nodo* rem = pos;
 
+	if(vacia()){
+		cout << "No hay elementos, insertando en primer posición" << endl;
+		h->sig = aux;
+		t->ant = aux;
+		aux->sig = t;
+		aux->ant = h;
+	}
 	aux->sig = rem;
 	aux->ant = rem->ant;
 	// rem->ant->sig y rem->ant apuntarán a aux
@@ -34,14 +41,14 @@ void ListaDoble::eliminarTodo(void){
 	cout << "Impleméntame" << endl;
 }
 
-Nodo* ListaDoble::buscar(string nom, string ed){
+Nodo* ListaDoble::buscar(string nom, unsigned int ed){
 	Nodo* dir;
 	dir = h;
 	// Iterando por la lista
-	while(dir->dato.nombre == nom && dir->dato.ed == al.edad){
+	while(dir->dato.nombre == nom && dir->dato.edad == ed){
 		dir = dir->sig;
 	}
-	return aux;
+	return dir;
 }
 
 void ListaDoble::inicializa(void){
@@ -99,14 +106,15 @@ void ListaDoble::mostrarTodo(void){
 		cout << "No hay lista" << endl;
 	}
 	else{
-		aux = h;
-		while(aux){
+		// Salta al nodo sentinela
+		aux = h->sig;
+		while(aux->sig != t){
 			numlista++;
 			cout << numlista;
 			cout << ".- ";
-			cout << aux->niño.nombre;
+			cout << aux->dato.nombre;
 			cout << ", ";
-			cout << aux->niño.edad << endl;
+			cout << aux->dato.edad << endl;
 			aux = aux->sig;
 		}
 	}

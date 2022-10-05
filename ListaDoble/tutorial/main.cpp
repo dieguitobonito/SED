@@ -93,6 +93,14 @@ void menu(){
 				}
 				break;
 			}
+			case 7:{
+				ld.getFront();
+				break;
+			}
+			case 8:{
+				ld.getBack();
+				break;
+			}
 			case 12:{
 				if(!ld.isEmpty()){
 					ld.printForward();

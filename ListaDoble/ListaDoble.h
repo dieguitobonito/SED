@@ -14,7 +14,7 @@ class ListaDoble{
 		void insertar(Alumno, Nodo*);
 		void eliminar(unsigned int);
 		void eliminarTodo(void);
-		Nodo* buscar(string, string);
+		Nodo* buscar(string, unsigned int);
 		void inicializa(void);
 		bool vacia(void);
 		Nodo* primero(void);

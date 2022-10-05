@@ -16,16 +16,24 @@ LinkedList::LinkedList(){
 
 // Return data instead of pointer
 void LinkedList::getFront(){
-	cout << "El primero es: ";
-	cout << header->next->data.name << ", ";
-	cout << header->next->data.age << endl;
+	if(isEmpty()){
+		cout << "\nNo hay primero\n" << endl;
+	}else{
+		cout << "\nEl primero es: ";
+		cout << header->next->data.name << ", ";
+		cout << header->next->data.age << "\n" << endl;
+	}
 }
 
 // Same as getfront
 void LinkedList::getBack(){
-	cout << "El último es: ";
-	cout << trailer->prev->data.name << ", ";
-	cout << trailer->prev->data.age << endl;
+	if(isEmpty()){
+		cout << "\nNo hay último\n" << endl;
+	}else{
+		cout << "El último es: ";
+		cout << trailer->prev->data.name << ", ";
+		cout << trailer->prev->data.age << endl;
+	}
 }
 
 void LinkedList::addFront(Alumno a){

@@ -28,10 +28,9 @@ void LinkedList::getBack(){
 	cout << trailer->prev->data.age << endl;
 }
 
-void LinkedList::addFront(Alumno dt){
-	Node* nd = new Node(dt, nullptr, nullptr);
-	nd->data.name = dt.name;
-	nd->data.age = dt.age;
+void LinkedList::addFront(Alumno a){
+	Node* nd = new Node(a, nullptr, nullptr);
+
 	nd->prev = header;
 	nd->next = header->next;
 
@@ -69,12 +68,14 @@ void LinkedList::printReverse(){
 	Node* tmp = trailer->prev;
 
 	unsigned int count = 0;
+	cout << "\n";
 	while(tmp != header){
 		count++;
 		cout << count << ".- ";
-		cout << tmp->data.name << tmp->data.age << endl;
+		cout << tmp->data.name << ", " << tmp->data.age << endl;
 		tmp = tmp->next;
 	}
+	cout << "\n" << endl;
 }
 
 void LinkedList::printForward(){
@@ -82,18 +83,49 @@ void LinkedList::printForward(){
 	// primer dato
 	Node* tmp = header->next;
 
+	cout << "\n";
 	unsigned int count = 0;
 	while(tmp != trailer){
 		count++;
 		cout << count << ".- ";
-		cout << tmp->data.name << tmp->data.age << endl;
+		cout << tmp->data.name << ", " << tmp->data.age << endl;
 		tmp = tmp->next;
+	}
+	cout << "\n";
+}
+
+bool LinkedList::isEmpty(void){
+	return (header->next == trailer);
+}
+
+Node* LinkedList::find(string n, unsigned int a){
+	Node* aux;
+	aux = header;
+	bool found = false;
+	if(isEmpty()){
+		cout << "\nNo hay lista para comenzar\n" << endl;
+	}else{
+		while(aux != nullptr && found == false){
+			if(aux->data.name == n && aux->data.age == a){
+				found = true;
+			}else{
+				aux = aux->next;
+			}
+		}
+	}
+	return aux;
+}
+
+void LinkedList::deleteThis(string n, unsigned int a){
+	Node* aux = find(n, a);
+	if(aux){
+		aux->prev->next = aux->next;
+		aux->next->prev = aux->prev;
+		delete aux;
 	}
 }
 
-LinkedList::~LinkedList(){
-	// Sabemos que la lista está vacía cuando
-	// los sentinelas se apuntan
+void LinkedList::deleteAll(void){
 	while(header->next != trailer)
 		removeFront();
 
@@ -101,15 +133,16 @@ LinkedList::~LinkedList(){
 	delete trailer;
 }
 
-bool LinkedList::isEmpty(void){
-	return (header->next == trailer);
-}
-
-void LinkedList::deleteThis(string n, unsigned int a){
-	Node* aux;
-	if(!isEmpty()){
+void LinkedList::initialize(void){
+	if(isEmpty()){
+		header->next = trailer;
+		trailer->prev = header;
+		header->prev = nullptr;
+		trailer->next = nullptr;
+		cout << "\nLista inicializada\n" << endl;
 	}else{
-		cout << "\nLista vacía, no hay por eliminar\n" << endl;
+		cout << "\nLa lista está inicializada\n" << endl;
 	}
+
 
 }

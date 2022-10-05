@@ -9,9 +9,10 @@ void menu(){
 
 	string menu_name;
 	unsigned int menu_age;
+	bool vaxio;
 
 	unsigned int option;
-	while(option != 10){
+	while(option != 13){
 		cout << "1.- insertar" << endl;
 		cout << "2.- eliminar" << endl;
 		cout << "3.- eliminarTodo" << endl;
@@ -34,6 +35,9 @@ void menu(){
 				cin >> menu_name;
 				cout << "Inserte edad\n: ";
 				cin >> menu_age;
+
+				Alumno kid(menu_name, menu_age);
+				ld.addFront(kid);
 				cout << "\n";
 				break;
 			}
@@ -50,11 +54,50 @@ void menu(){
 				}
 				break;
 			}
+			case 3:{
+				int decision;
+				cout << "\n¿Segur@?\n1. Sí\n2. No\n: ";
+				cin >> decision;
+				if(decision != 1){
+					cout << "\nOperación cancelada\n" << endl;
+				}else{
+					cout << "\n";
+					ld.deleteAll();
+				}
+				break;
+			}
+			case 4:{
+				cout << "\nNombre del alumno a buscar\n: ";
+				cin >> menu_name;
+				cout << "Edad del dicho\n: ";
+				cin >> menu_age;
+				Node* addr = ld.find(menu_name, menu_age);
+				if(addr != nullptr){
+					cout << "\nAlumno encontrado en " << addr << "\n" << endl;
+				}else{
+					cout << "\nAlumno no encontrado\n" << endl;
+				}
+				break;
+			}
+			case 5:{
+				ld.initialize();
+				break;
+			}
 			case 6:{
 				if(ld.isEmpty()){
+					cout << vaxio << endl;
+
 					cout << "\nLista vacía\n" << endl;
 				}else{
 					cout << "\nLista no vacía\n" << endl;
+				}
+				break;
+			}
+			case 12:{
+				if(!ld.isEmpty()){
+					ld.printForward();
+				}else{
+					cout << "\n¡Lista vacía!\n" << endl;
 				}
 				break;
 			}

@@ -8,17 +8,20 @@ class LinkedList{
 		LinkedList();
 		// Puede que no se
 		// necesite destructor
-		~LinkedList();
+		// ~LinkedList();
 		void getFront(void);
 		void getBack(void);
 		void addFront(Alumno);
 		void addBack(Alumno);
 		void deleteThis(string, unsigned int);
+		void deleteAll(void);
 		void removeFront(void);
 		void removeBack(void);
 		void printReverse(void);
 		void printForward(void);
 		bool isEmpty(void);
+		void initialize(void);
+		Node* find(string, unsigned int);
 	private:
 		// Sentinels
 		Node* header;

@@ -6,23 +6,24 @@
 class LinkedList{
 	public:
 		LinkedList();
-		// Puede que no se
-		// necesite destructor
-		// ~LinkedList();
-		void getFront(void);
-		void getBack(void);
-		void addFront(Alumno);
-		void addBack(Alumno);
-		void deleteThis(string, unsigned int);
-		void deleteAll(void);
 		void removeFront(void);
 		void removeBack(void);
-		void printReverse(void);
-		void printForward(void);
-		bool isEmpty(void);
-		void initialize(void);
+
+		void addFront(Alumno);
+		void addBack(Alumno);
+
+		void deleteThis(string, unsigned int);
+		void deleteAll(void);
 		Node* find(string, unsigned int);
+		void initialize(void);
+		bool isEmpty(void);
+		void getFront(void);
+		void getBack(void);
 		unsigned int size(void);
+		void nextNode(string, unsigned int);
+		void prev(string, unsigned int);
+		void printForward(void);
+		void printReverse(void);
 	private:
 		// Sentinels
 		Node* header;

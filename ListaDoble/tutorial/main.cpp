@@ -106,6 +106,14 @@ void menu(){
 				cout << "\nHay " << cant << " elemento(s) en la lista\n" << endl;
 				break;
 			}
+			case 10:{
+				cout << "\nNombre del alumno para saber el siguiente\n: ";
+				cin >> menu_name;
+				cout << "Edad\n: ";
+				cin >> menu_age;
+				ld.nextNode(menu_name, menu_age);
+				break;
+			}
 			case 12:{
 				if(!ld.isEmpty()){
 					ld.printForward();

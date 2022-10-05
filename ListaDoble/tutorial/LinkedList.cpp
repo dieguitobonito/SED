@@ -151,8 +151,6 @@ void LinkedList::initialize(void){
 	}else{
 		cout << "\nLa lista está inicializada\n" << endl;
 	}
-
-
 }
 
 unsigned int LinkedList::size(void){
@@ -165,4 +163,16 @@ unsigned int LinkedList::size(void){
 		}
 	}
 	return cant;	
+}
+
+void LinkedList::nextNode(string n, unsigned int a){
+	Node* tmp = find(n, a);
+	
+	// Para no acceder ilegalmente
+	if(tmp->next == trailer){
+		cout << "\nNo hay alumno siguiente\n" << endl;
+	}else{
+		cout << "\nEl alumno siguiente es " << tmp->next->data.name;
+		cout << ", " << tmp->next->data.age << endl;
+	}
 }

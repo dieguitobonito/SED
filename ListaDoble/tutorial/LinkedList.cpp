@@ -36,6 +36,7 @@ void LinkedList::getBack(){
 	}
 }
 
+// Hola
 void LinkedList::addFront(Alumno a){
 	Node* nd = new Node(a, nullptr, nullptr);
 

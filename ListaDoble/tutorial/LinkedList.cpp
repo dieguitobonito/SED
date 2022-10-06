@@ -46,15 +46,6 @@ void LinkedList::addFront(Alumno a){
 	header->next = nd;
 }
 
-void LinkedList::addBack(Alumno dt){
-	Node* nd = new Node(dt, nullptr, nullptr);
-	nd->data = dt;
-	nd->prev = trailer->prev;
-	nd->next = trailer;
-
-	trailer->prev->next = nd;
-	trailer->prev = nd;
-}
 
 void LinkedList::removeFront(){
 	Node* nd = header->next->next;
@@ -63,27 +54,20 @@ void LinkedList::removeFront(){
 	nd->prev = header;
 }
 
-void LinkedList::removeBack(){
-	Node* nd = trailer->prev->prev;
-	delete trailer->prev;
-	trailer->prev = nd;
-	nd->next = trailer;
-}
-
 void LinkedList::printReverse(){
 	// Referencia al verdadero
 	// último dato
 	Node* tmp = trailer->prev;
 
-	unsigned int count = 0;
+	unsigned int count = size();
 	cout << "\n";
 	while(tmp != header){
-		count++;
 		cout << count << ".- ";
 		cout << tmp->data.name << ", " << tmp->data.age << endl;
-		tmp = tmp->next;
+		tmp = tmp->prev;
+		count--;
 	}
-	cout << "\n" << endl;
+	cout << "\n";
 }
 
 void LinkedList::printForward(){
@@ -130,6 +114,9 @@ void LinkedList::deleteThis(string n, unsigned int a){
 		aux->prev->next = aux->next;
 		aux->next->prev = aux->prev;
 		delete aux;
+		cout << "Alumno eliminado\n" << endl;
+	}else{
+		cout << "Alumno no encontrado\n" << endl;
 	}
 }
 
@@ -143,6 +130,8 @@ void LinkedList::deleteAll(void){
 
 void LinkedList::initialize(void){
 	if(isEmpty()){
+		header = new Node();
+		trailer = new Node();
 		header->next = trailer;
 		trailer->prev = header;
 		header->prev = nullptr;
@@ -167,13 +156,17 @@ unsigned int LinkedList::size(void){
 
 void LinkedList::nextNode(string n, unsigned int a){
 	Node* tmp = find(n, a);
+	cout << "Busqué" << endl;
 	
 	// Para no acceder ilegalmente
 	if(tmp->next == trailer){
 		cout << "\nNo hay alumno siguiente\n" << endl;
+	}else if(tmp == nullptr){
+		cout << "\nAlumno no encontrado\n" << endl;
 	}else{
 		cout << "\nEl alumno siguiente es " << tmp->next->data.name;
 		cout << ", " << tmp->next->data.age << endl;
+		cout << "\n";
 	}
 }
 
@@ -184,7 +177,7 @@ void LinkedList::prevNode(string n, unsigned int a){
 		cout << "\nNo hay alumno anterior\n" << endl;
 	}else{
 		cout << "\nEl alumno anterior es " << tmp->prev->data.name;
-		cout << ", " << tmp->prev->data.age << endl;
+		cout << ", " << tmp->prev->data.age << "\n" << endl;
 	}
 }
 

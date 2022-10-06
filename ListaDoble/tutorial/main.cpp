@@ -12,7 +12,7 @@ void menu(){
 	bool vaxio;
 
 	unsigned int option;
-	while(option != 13){
+	while(option != 14){
 		cout << "1.- insertar" << endl;
 		cout << "2.- eliminar" << endl;
 		cout << "3.- eliminarTodo" << endl;
@@ -25,7 +25,8 @@ void menu(){
 		cout << "10.- siguiente" << endl;
 		cout << "11.- anterior" << endl;
 		cout << "12.- mostrarTodo (imprimir)" << endl;
-		cout << "13.- salir" << endl;
+		cout << "13.- Imprimir al revés" << endl;
+		cout << "14.- salir" << endl;
 		cout << ": ";
 		cin >> option;
 
@@ -146,6 +147,14 @@ void menu(){
 				break;
 			}
 			case 13:{
+				if(!ld.isEmpty()){
+					ld.printReverse();
+				}else{
+					cout << "\n¡Lista vacía!" << endl;
+				}
+				break;
+			}
+			case 14:{
 				cout << "\nHasta luego\n" << endl;
 				break;
 			}

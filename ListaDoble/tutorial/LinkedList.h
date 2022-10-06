@@ -7,7 +7,6 @@ class LinkedList{
 	public:
 		LinkedList();
 		void removeFront(void);
-		void removeBack(void);
 
 		void addFront(Alumno);
 		void addBack(Alumno);

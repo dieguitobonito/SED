@@ -176,3 +176,33 @@ void LinkedList::nextNode(string n, unsigned int a){
 		cout << ", " << tmp->next->data.age << endl;
 	}
 }
+
+void LinkedList::prevNode(string n, unsigned int a){
+	Node* tmp = find(n, a);
+
+	if(tmp->prev == header){
+		cout << "\nNo hay alumno anterior\n" << endl;
+	}else{
+		cout << "\nEl alumno anterior es " << tmp->prev->data.name;
+		cout << ", " << tmp->prev->data.age << endl;
+	}
+}
+
+void LinkedList::addNode(Alumno a, unsigned int pos){
+	unsigned int rang = pos;
+	
+	Node* nxt = header;
+
+	while(pos - 1 > 0){
+		pos--;
+		nxt = nxt->next;
+	}
+	
+	Node* nd = new Node(a, nullptr, nullptr);
+
+	nd->prev = nxt;
+	nd->next = nxt->next;
+
+	nxt->next->prev = nd;
+	nxt->next = nd;
+}

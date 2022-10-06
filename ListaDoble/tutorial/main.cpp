@@ -37,8 +37,23 @@ void menu(){
 				cin >> menu_age;
 
 				Alumno kid(menu_name, menu_age);
-				ld.addFront(kid);
+				if(ld.isEmpty()){
+					ld.addFront(kid);
+				}else{
+					unsigned int pos;
+					ld.printForward();
+					cout << "En qué posición: ";
+					cin >> pos;
+					int tam = ld.size();
+					if(pos > 0 && pos <= tam){
+						ld.addNode(kid, pos);
+					}else{
+						cout << "\nPosición fuera de rango" << endl;
+					}
+				}
 				cout << "\n";
+				break;
+
 				break;
 			}
 			case 2:{
@@ -112,6 +127,14 @@ void menu(){
 				cout << "Edad\n: ";
 				cin >> menu_age;
 				ld.nextNode(menu_name, menu_age);
+				break;
+			}
+			case 11:{
+				cout << "\nNombre del alumno para saber el anterior\n: ";
+				cin >> menu_name;
+				cout << "Edad\n: ";
+				cin >> menu_age;
+				ld.prevNode(menu_name, menu_age);
 				break;
 			}
 			case 12:{

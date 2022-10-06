@@ -96,6 +96,7 @@ Node* LinkedList::find(string n, unsigned int a){
 	bool found = false;
 	if(isEmpty()){
 		cout << "\nNo hay lista para comenzar\n" << endl;
+		return nullptr;
 	}else{
 		while(aux != nullptr && found == false){
 			if(aux->data.name == n && aux->data.age == a){
@@ -156,13 +157,12 @@ unsigned int LinkedList::size(void){
 
 void LinkedList::nextNode(string n, unsigned int a){
 	Node* tmp = find(n, a);
-	cout << "Busqué" << endl;
-	
+
 	// Para no acceder ilegalmente
-	if(tmp->next == trailer){
-		cout << "\nNo hay alumno siguiente\n" << endl;
-	}else if(tmp == nullptr){
+	if(tmp == nullptr){
 		cout << "\nAlumno no encontrado\n" << endl;
+	}else if(tmp->next == trailer){
+		cout << "\nNo hay alumno siguiente\n" << endl;
 	}else{
 		cout << "\nEl alumno siguiente es " << tmp->next->data.name;
 		cout << ", " << tmp->next->data.age << endl;

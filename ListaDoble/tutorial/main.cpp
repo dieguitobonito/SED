@@ -9,29 +9,33 @@ void menu(){
 
 	string menu_name;
 	unsigned int menu_age;
-	bool vaxio;
+	bool vaxio = false;
 
 	unsigned int option;
 	while(option != 14){
-		cout << "1.- insertar" << endl;
-		cout << "2.- eliminar" << endl;
-		cout << "3.- eliminarTodo" << endl;
-		cout << "4.- buscar" << endl;
-		cout << "5.- inicializa" << endl;
-		cout << "6.- vacía" << endl;
-		cout << "7.- primero" << endl;
-		cout << "8.- ultimo" << endl;
-		cout << "9.- tamaño" << endl;
-		cout << "10.- siguiente" << endl;
-		cout << "11.- anterior" << endl;
-		cout << "12.- mostrarTodo (imprimir)" << endl;
+		cout << "1.- Insertar" << endl;
+		cout << "2.- Eliminar" << endl;
+		cout << "3.- Eliminar todo" << endl;
+		cout << "4.- Buscar" << endl;
+		cout << "5.- Inicializa" << endl;
+		cout << "6.- Vacía" << endl;
+		cout << "7.- Primero" << endl;
+		cout << "8.- Último" << endl;
+		cout << "9.- Tamaño" << endl;
+		cout << "10.- Siguiente" << endl;
+		cout << "11.- Anterior" << endl;
+		cout << "12.- Imprimir" << endl;
 		cout << "13.- Imprimir al revés" << endl;
-		cout << "14.- salir" << endl;
+		cout << "14.- Salir" << endl;
 		cout << ": ";
 		cin >> option;
 
 		switch(option){
 			case 1:{
+				if(vaxio == true){
+					ld.initialize();
+					vaxio = false;
+				}
 				cout << "\nInserte nombre\n: ";
 				cin >> menu_name;
 				cout << "Inserte edad\n: ";
@@ -79,6 +83,7 @@ void menu(){
 				}else{
 					cout << "\n";
 					ld.deleteAll();
+					vaxio = true;
 				}
 				break;
 			}
@@ -150,7 +155,7 @@ void menu(){
 				if(!ld.isEmpty()){
 					ld.printReverse();
 				}else{
-					cout << "\n¡Lista vacía!" << endl;
+					cout << "\n¡Lista vacía!\n" << endl;
 				}
 				break;
 			}

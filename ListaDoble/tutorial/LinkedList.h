@@ -9,7 +9,6 @@ class LinkedList{
 		void removeFront(void);
 
 		void addFront(Alumno);
-		void addBack(Alumno);
 		void addNode(Alumno, unsigned int);
 
 		void deleteThis(string, unsigned int);
@@ -22,7 +21,6 @@ class LinkedList{
 		unsigned int size(void);
 		void nextNode(string, unsigned int);
 		void prevNode(string, unsigned int);
-		void prev(string, unsigned int);
 		void printForward(void);
 		void printReverse(void);
 	private:

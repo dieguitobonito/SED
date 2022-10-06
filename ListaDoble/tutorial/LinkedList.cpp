@@ -46,7 +46,6 @@ void LinkedList::addFront(Alumno a){
 	header->next = nd;
 }
 
-
 void LinkedList::removeFront(){
 	Node* nd = header->next->next;
 	delete header->next;

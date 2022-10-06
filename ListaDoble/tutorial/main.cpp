@@ -26,8 +26,7 @@ void menu(){
 		cout << "11.- Anterior" << endl;
 		cout << "12.- Imprimir" << endl;
 		cout << "13.- Imprimir al revés" << endl;
-		cout << "14.- Salir" << endl;
-		cout << ": ";
+		cout << "14.- Salir" << endl; cout << ": ";
 		cin >> option;
 
 		switch(option){
@@ -57,8 +56,6 @@ void menu(){
 					}
 				}
 				cout << "\n";
-				break;
-
 				break;
 			}
 			case 2:{

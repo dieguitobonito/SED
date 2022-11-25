@@ -16,7 +16,7 @@ LinkedList::LinkedList(){
 	trailer->next = nullptr;
 }
 
-void LinkedList::addNode(Producto a){
+void LinkedList::addNode(Data a){
 	// Primer nodo
 	if(!header->next && !trailer->prev){
 		Node* tmp = new Node(a);
@@ -47,7 +47,7 @@ void LinkedList::printForward(){
 		while(tmp){
 			count++;
 			cout << count << ".- ";
-			cout << tmp->data.id << ", " << tmp->data.name <<
+			cout << tmp->data.price << ", " << tmp->data.name <<
 				", " << tmp->data.price << endl;
 			tmp = tmp->next;
 		}
@@ -58,15 +58,15 @@ void LinkedList::printForward(){
 void LinkedList::swapNodes(Node* a, Node* b){
 	Node* savedData;
 
-	savedData->data.id = b->data.id;
+	savedData->data.price = b->data.price;
 	savedData->data.name = b->data.name;
 	savedData->data.price = b->data.price;
 
-	b->data.id = a->data.id;
+	b->data.price = a->data.price;
 	b->data.name = a->data.name;
 	b->data.price = a->data.price;
 
-	a->data.id = savedData->data.id;
+	a->data.price = savedData->data.price;
 	a->data.name = savedData->data.name;
 	a->data.price = savedData->data.price;
 }
@@ -90,7 +90,7 @@ void LinkedList::bubbleSort(LinkedList* l){
 
 	while(i < nodes - 1){
 		while(tmp->next){
-			if(tmp->data.id > tmp->next->data.id){
+			if(tmp->data.price > tmp->next->data.price){
 				swapNodes(tmp, tmp->next);
 			}
 			tmp = tmp->next;
@@ -114,7 +114,7 @@ void LinkedList::quickSort(LinkedList* l){
 		tmp = pivot->next;
 
 		while(tmp){
-			if(tmp->data.id < pivot->data.id){
+			if(tmp->data.price < pivot->data.price){
 				lower->addNode(tmp->data);
 			}
 			else{

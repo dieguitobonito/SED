@@ -3,12 +3,12 @@
 #include <string>
 #include "LinkedList.h"
 #include "Node.h"
-#include "Producto.h"
+#include "Data.h"
 //using namespace std;
 
 LinkedList ld;
 
-void nodeGeneration(){
+void randomnodeGeneration(){
 
 	std::string names[127] = {						
 	"Pet Bed",
@@ -139,14 +139,23 @@ void nodeGeneration(){
 	"Bridal Robe",
 	"Men’s Formalwear Bowtie",
 };
+	std::string sizes[3] = {
 
-unsigned int quantity = 0;
+		"SMALL",
+		"MEDIUM",
+		"LARGE",
+
+	};
+
+	unsigned int quantity = 0;
 	std::cout << "¿Cuántos elementos quieres generar?\n: ";
 	std::cin >> quantity;
 
 	std::string name = "";
 	float price = 0;
-	unsigned int id = 0;
+	unsigned int key = 0;
+	std::string size = "";
+	std::string year = "";
 
 	bool sure = true;
 
@@ -188,6 +197,15 @@ unsigned int quantity = 0;
 		}
 		std::cout << "\nListo\n" << std::endl;
 	}
+}
+
+void nodeGeneration(){
+	std::string name = "";
+	float price = 0;
+	unsigned int id = 0;
+	std::size = "";
+	unsigned int year = 0;
+	std::cout << "Entraste a la generación manual" << endl;
 }
 
 void sorting(){
@@ -239,7 +257,22 @@ void menu(){
 		cin >> opcion;
 		switch(opcion){
 			case 1:
-				nodeGeneration();
+				unsigned int subOption = 0;
+				std::cout << "¿Quieres generarlos tú\n"
+					"o la máquina? (1/2)\n";
+				std::cout << ": ";
+				cin << subChoice;
+				switch(subOption){
+					case 1:
+						nodeGeneration();
+						break;
+					case 2:
+						randomnodeGeneration();
+						break;
+					default:
+						std::cout << "Opción incorrecta"
+							<< std::endl;
+				}
 				break;
 			case 2:
 				ld.printForward();

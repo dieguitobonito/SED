@@ -1,15 +1,15 @@
 #ifndef NODE_H
 #define NODE_H
 
-#include "Producto.h"
+#include "Data.h"
 
 class Node{
 	public:
 		Node();
-		Node(Producto, Node*, Node*);
-		Node(Producto);
+		Node(Data, Node*, Node*);
+		Node(Data);
 	private:
-		Producto data;
+		Data data;
 		Node* next;
 		Node* prev;
 

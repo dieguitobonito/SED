@@ -1,18 +1,18 @@
 #include "Node.h"
 
 Node::Node(){
-	Producto();
+	Data();
 	next = nullptr;
 	prev = nullptr;
 }
 
-Node::Node(Producto data, Node* next, Node* prev){
+Node::Node(Data data, Node* next, Node* prev){
 	this->data = data;
 	this->next = next;
 	this->prev = prev;
 }
 
-Node::Node(Producto data){
+Node::Node(Data data){
 	this->data = data;
 	next = nullptr;
 	prev = nullptr;

@@ -6,7 +6,7 @@
 class LinkedList{
 	public:
 		LinkedList();
-		void addNode(Producto);
+		void addNode(Data);
 		void printForward(void);
 
 		unsigned int size(LinkedList*);

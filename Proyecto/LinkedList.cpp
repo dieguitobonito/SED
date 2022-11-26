@@ -4,7 +4,7 @@
 
 #include <iostream>
 #include <string>
-using namespace std;
+#include <fstream>
 
 
 LinkedList::LinkedList(){
@@ -42,13 +42,15 @@ void LinkedList::printForward(){
 		Node* tmp = header->next;
 
 		cout << "\n";
-		cout << "Id, nombre de producto y precio\n" << endl;
+		cout << "Key, nombre, precio, tamaño y año de fabricación\n" << endl;
 		unsigned int count = 0;
 		while(tmp){
 			count++;
 			cout << count << ".- ";
-			cout << tmp->data.price << ", " << tmp->data.name <<
-				", " << tmp->data.price << endl;
+			cout << tmp->data.key << ", " << tmp->data.name << ", "
+				<< "$" << tmp->data.price << ", "
+				<< tmp->data.size << ", " << tmp->data.year
+				<< endl;
 			tmp = tmp->next;
 		}
 	}
@@ -71,7 +73,6 @@ void LinkedList::swapNodes(Node* a, Node* b){
 	a->data.price = savedData->data.price;
 }
 
-
 unsigned int LinkedList::size(LinkedList* l){
 	unsigned quantity = 0;
 	Node* tmp = l->header;
@@ -82,81 +83,7 @@ unsigned int LinkedList::size(LinkedList* l){
 	return quantity;
 }
 
-void LinkedList::bubbleSort(LinkedList* l){
-	Node* tmp = l->header->next;
-
-	int nodes = size(l);
-	int i = 0;
-
-	while(i < nodes - 1){
-		while(tmp->next){
-			if(tmp->data.price > tmp->next->data.price){
-				swapNodes(tmp, tmp->next);
-			}
-			tmp = tmp->next;
-		}
-		tmp = l->header->next;
-		i++;
-	}
-}
-
-// Ordenar id
-void LinkedList::quickSort(LinkedList* l){
-	Node* pivot;
-	Node* tmp;
-	
-	LinkedList* upper = new LinkedList();
-	LinkedList* lower = new LinkedList();
-
-	if(l->size(l) > 1){
-		pivot = l->header->next;
-		Node* savedPivot = new Node(pivot->data);
-		tmp = pivot->next;
-
-		while(tmp){
-			if(tmp->data.price < pivot->data.price){
-				lower->addNode(tmp->data);
-			}
-			else{
-				upper->addNode(tmp->data);
-			}
-			tmp = tmp->next;
-		}
-
-		quickSort(lower);
-		quickSort(upper);
-
-		// Elementos menores
-		tmp = l->header->next;
-		Node* left = lower->header->next;
-
-		// Acomodando la lista original con la sublista ordenada
-		// Como esto se hace recursivamente, lo que nos importa
-		// es la sublista principal que ya estará ordenada
-		// left->data.name != "" porque hay unos nodos inicializados vacíos,
-		// los evito con eso
-		while(left && tmp && left->data.name != ""){
-			tmp->data = left->data;
-			tmp = tmp->next;
-			left = left->next;
-		}
-
-		tmp->data = savedPivot->data;
-		tmp = tmp->next;
-
-		// Elementos mayores
-		Node* right = upper->header->next;
-
-		// Lo mismo pasará con la sublista de elementos mayores
-		while(right && tmp && right->data.name != ""){
-			tmp->data = right->data;
-			tmp = tmp->next;
-			right = right->next;
-		}
-	}
-}
-
-// Ordenar precio
+// Ordenar key
 void LinkedList::mergeSort(unsigned int size, LinkedList* l){
 	LinkedList* derecha = new LinkedList;
 	LinkedList* izquierda = new LinkedList;
@@ -201,7 +128,7 @@ void LinkedList::mergeSort(unsigned int size, LinkedList* l){
 		// aux en este caso actúa como
 		// sublista ordenada
 		while(aux && iz && de){
-			if(iz->data.price < de->data.price){
+			if(iz->data.key < de->data.key){
 				aux->data = iz->data;
 				iz = iz->next;
 				aux = aux->next;
@@ -232,51 +159,126 @@ void LinkedList::mergeSort(unsigned int size, LinkedList* l){
 	}
 }
 
-// Ordenar nombre
-void LinkedList::insertSort(LinkedList* l){
-	cout << "Ordenando por nombres..." << endl;
-	// El subarreglo comenzaría desde el segundo elemento
-	Node* unsorted = l->header->next->next;
-	Node* tmp = nullptr;
-	
-	while(unsorted){
-		tmp = unsorted;
-		while(tmp->prev && tmp->data.name < tmp->prev->data.name){
-			cout << "";
-			swapNodes(tmp, tmp->prev);
-			tmp = tmp->prev;
-		}
-		unsorted = unsorted->next;
-	}
+void LinkedList::printtoFile(LinkedList* l){
+	if(!size(l))
+		std::cout << "No hay nada para guardar" << std::endl;
+	else{
+		ofstream file;
+		file.open("List.txt");
 
-	cout << "Listo" << endl;
+		Node* tmp = l->header->next;
+
+		unsigned int count = 0;
+		while(tmp){
+			file << tmp->data.key << " | " << tmp->data.name
+				<< " | " << tmp->data.price << " | "
+				<< tmp->data.size << " | " << tmp->data.year
+				<< endl;
+			tmp = tmp->next;
+		}
+		file.close();
+	}
 }
 
-void LinkedList::selectSort(LinkedList* l){
-	Node* aux = l->header->next;
-	Node* pos = l->header->next;
-	Node* menor = l->header->next;
+Node* LinkedList::search(LinkedList* l){
+	unsigned int lookKey = 0;
+	std::cout << "Llave del registro: ";
+	std::cin >> lookKey;
+	Node* tmp = l->header->next;
 
-	cout << "Ordenando por precio..." << endl;
+	while(tmp && tmp->data.key != lookKey){
+		tmp = tmp->next;
+	}
 
-	while(pos->next){
-		aux = pos->next;
-		menor = pos;
-		while(aux){
-			if(menor->data.price > aux->data.price){
-				menor = aux;
+	return tmp;
+}
+
+void LinkedList::lookFor(LinkedList* l){
+	Node* a = search(l);
+	if(!a)
+		std::cout << "No se encontró el registro" << std::endl;
+	else{
+		std::cout << "Valor encontrado en: " << a << std::endl;
+		std::cout << a->data.key << ", " << a->data.name
+			<< ", " << a->data.price << ", " << a->data.size
+			<< ", " << a->data.year << std::endl;
+	}
+}
+
+void LinkedList::modifyRegister(LinkedList* l){
+	Node* a = search(l);
+	if(!a)
+		std::cout << "No se encontró el registro" << std::endl;
+	else{
+		int option = 0;
+
+		std::cout << "Valor encontrado en: " << a << std::endl;
+		std::cout << a->data.key << ", " << a->data.name
+			<< ", " << a->data.price << ", " << a->data.size
+			<< ", " << a->data.year << std::endl;
+
+		std::cout << "¿Qué valor quieres modificar?\n"
+			<< "1. Key\n"
+			<< "2. Nombre\n"
+			<< "3. Precio\n"
+			<< "4. Tamaño\n"
+			<< "5. Año\n"
+			<< ": ";
+		std::cin >> option;
+		switch(option){
+			case 1:{
+				unsigned int newKey = 0;
+				std::cout << a->data.key << std::endl
+					<< "Valor nuevo: ";
+				std::cin >> newKey;
+				a->data.key = newKey;
+				std::cout << "Valor actualizado" << std::endl;
+				break;
 			}
-			aux = aux->next;
+			case 2:{
+				std::string newName = "";
+				std::cout << a->data.name << std::endl
+					<< "Valor nuevo: ";
+				// Limpia valores en buffer
+				std::cin.ignore();
+				std::getline(std::cin, newName);
+				a->data.name = newName;
+				std::cout << "Valor actualizado" << std::endl;
+				break;
+			}
+			case 3:{
+				float newPrice = 0;
+				std::cout << a->data.name << std::endl
+					<< "Valor nuevo: ";
+				std::cin >> newPrice;
+				a->data.price = newPrice;
+				std::cout << "Valor actualizado" << std::endl;
+				break;
+			}
+			case 4:{
+				std::string newSize = "";
+				std::cout << a->data.size << std::endl
+					<< "Valor nuevo: ";
+				// Limpia valores en buffer
+				std::cin.ignore();
+				std::getline(std::cin, newSize);
+				a->data.size = newSize;
+				std::cout << "Valor actualizado" << std::endl;
+				break;
+			}
+			case 5:{
+				float newYear = 0;
+				std::cout << a->data.year << std::endl
+					<< "Valor nuevo: ";
+				std::cin >> newYear;
+				a->data.year = newYear;
+				std::cout << "Valor actualizado" << std::endl;
+				break;
+			}
+			default:
+				std::cout << "Cambio cancelado" << std::endl;
 		}
-		swapNodes(pos, menor);
-		pos = pos->next;
-	}
-	cout << "Listo" << endl;
-}
-
-void LinkedList::shellSort(LinkedList* l, unsigned int n){
-	for(unsigned int i = n / 2; i > 0; i /= 2){
-
 
 	}
+
 }

@@ -30,7 +30,7 @@ class Data{
 		string size;
 		unsigned int year;
 
-	friend class Node;
-	friend class LinkedList;
+		friend class Node;
+		friend class LinkedList;
 };
 #endif

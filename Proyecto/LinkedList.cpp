@@ -202,6 +202,9 @@ void LinkedList::lookFor(LinkedList* l){
 		std::cout << a->data.key << ", " << a->data.name
 			<< ", " << a->data.price << ", " << a->data.size
 			<< ", " << a->data.year << std::endl;
+		std::cout << a->next << std::endl;
+		std::cout << trailer << std::endl;
+		std::cout << trailer->prev << std::endl;
 	}
 }
 
@@ -281,4 +284,26 @@ void LinkedList::modifyRegister(LinkedList* l){
 
 	}
 
+}
+
+void LinkedList::deleteNode(Node* a){
+	if(a && a->next != nullptr){
+		Node* tmp = a->prev;
+		tmp->next = a->next;
+		a->next->prev = tmp;
+		delete a;
+		std::cout << "Nodo eliminado" << std::endl;
+	}
+	else{
+		if(a && a->next == nullptr){
+			Node* tmp = a->prev;
+			tmp->next = nullptr;
+			trailer->prev = tmp;
+			delete a;
+			std::cout << "Nodo eliminado" << std::endl;
+		}
+		else{
+			std::cout << "No se encontró el registro" << std::endl;
+		}
+	}
 }

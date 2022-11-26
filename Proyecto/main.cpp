@@ -276,6 +276,8 @@ void create(){
 
 void kill(){
 	std::cout << "Kill" << std::endl;
+	Node* a = ld.search(&ld);
+	ld.deleteNode(a);
 }
 
 void consult(){

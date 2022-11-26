@@ -15,6 +15,7 @@ class LinkedList{
 		void mergeSort(unsigned int, LinkedList*);
 		void swapNodes(Node*, Node*);
 		void modifyRegister(LinkedList*);
+		void deleteNode(Node*);
 	private:
 		// Sentinels
 		Node* header;

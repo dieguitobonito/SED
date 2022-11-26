@@ -274,10 +274,21 @@ void create(){
 
 }
 
-void kill(){
-	std::cout << "Kill" << std::endl;
+void kill(LinkedList* l){
+	int decision;
 	Node* a = ld.search(&ld);
-	ld.deleteNode(a);
+	if(a){
+		std::cout << "¿Eliminar? "
+			<< "(1. Sí /2. No): ";
+		std::cin >> decision;
+		switch(decision){
+			case 1:
+				ld.deleteNode(a);
+				break;
+			default:
+				std::cout << "No se borrará" << std::endl;
+		}
+	}
 }
 
 void consult(){
@@ -326,7 +337,7 @@ void menu(){
 				create();
 				break;
 			case 2:
-				kill();
+				kill(&ld);
 				break;
 			case 3:
 				ld.lookFor(&ld);

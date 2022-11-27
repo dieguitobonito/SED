@@ -164,16 +164,16 @@ void LinkedList::printtoFile(LinkedList* l){
 		std::cout << "No hay nada para guardar" << std::endl;
 	else{
 		ofstream file;
-		file.open("List.txt");
+		file.open("List.csv");
 
 		Node* tmp = l->header->next;
 
 		unsigned int count = 0;
 		while(tmp){
-			file << tmp->data.key << " | " << tmp->data.name
-				<< " | " << tmp->data.price << " | "
-				<< tmp->data.size << " | " << tmp->data.year
-				<< endl;
+			file << tmp->data.key << "," << tmp->data.name
+				<< "," << tmp->data.price << ","
+				<< tmp->data.size << "," << tmp->data.year
+				<< "\n";
 			tmp = tmp->next;
 		}
 		file.close();

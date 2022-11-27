@@ -4,6 +4,7 @@
 #include "LinkedList.h"
 #include "Node.h"
 #include "Data.h"
+#include <fstream>
 //using namespace std;
 
 LinkedList ld;
@@ -311,9 +312,9 @@ void exportList(){
 	ld.printtoFile(&ld);
 	std::cout << "Lista exportada" << std::endl;
 }
-void importList(){
-	std::cout << "Si tienes muchos datos puede fallar" << std::endl;
 
+void importList(){
+	std::cout << "Impleméntame" << std::endl;
 }
 
 void menu(){

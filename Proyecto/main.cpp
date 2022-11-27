@@ -272,7 +272,6 @@ void create(){
 		default:
 			std::cout << "Opción incorrecta" << std::endl;
 	}
-
 }
 
 void kill(LinkedList* l){

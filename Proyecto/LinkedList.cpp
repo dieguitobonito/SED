@@ -189,7 +189,6 @@ Node* LinkedList::search(LinkedList* l){
 	while(tmp && tmp->data.key != lookKey){
 		tmp = tmp->next;
 	}
-
 	return tmp;
 }
 
